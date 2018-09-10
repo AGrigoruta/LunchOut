@@ -9,9 +9,9 @@ const express = require('express')
     , cookieSession = require('cookie-session') // securing the session
     , passport = require('passport');
 
-app.use(express.static('public'));
+app.use(express.static('build'));
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/public/index.html');
+    res.sendFile(__dirname + '/build/index.html');
 });
 
 app.use(cookieSession({

@@ -1,0 +1,44 @@
+@media (min-width: 641px) and (max-width: 1070px){
+    .App {
+        text-align:center;
+        .App__header__logo {
+        width: 80%;
+        margin-top: 70px;
+        display: inline-block;
+        }
+    }
+    .container{
+        margin-top: 60%;
+        display:inline-block;
+        width: 80%;
+    }
+    .raw {
+        width: 100%;
+        display: flex;
+        float: left;
+         margin-top: 20px; }
+      
+    .main{
+        padding: 0px 10px 10px 0px;
+        width:100%;
+        display: flex;
+        margin: auto;
+        text-align: center;
+    .main__log{
+        padding: 10px 0px 10px 0px;
+        text-align:center;
+        margin: auto;
+        width: 100%;
+        display: flex;
+        font-size: 30px;
+        font-weight: bold;
+        font-family: 'Arial';
+        border-radius: 40px;
+        color: #fff;}
+    }
+    .main__logo__icon{
+        padding: 25px 10px 10px 20px;
+        height: 40px;
+        margin-left: 20%;
+    }
+}
