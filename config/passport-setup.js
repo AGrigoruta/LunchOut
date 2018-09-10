@@ -1,7 +1,8 @@
 const passport = require('passport')
     , GoogleStrategy = require('passport-google-oauth20')
     , keys = require('./keys')
-    , User = require('../models/user-model');
+    , User = require('../models/user-model')
+    , FacebookStrategy = require('passport-facebook').Strategy;
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
@@ -48,3 +49,37 @@ passport.use(
 
     })
 );
+
+passport.use(new FacebookStrategy({
+    clientID: keys.facebookAuth.clientID,
+    clientSecret: keys.facebookAuth.clientSecret,
+    callbackURL: keys.facebookAuth.callbackURL,
+    profileFields: keys.facebookAuth.profileFields
+  },
+  function(accessToken, refreshToken, profile, done) {
+        process.nextTick(function(){
+            User.findOne({'facebook.id': profile.id}, function(err, user){
+                if(err)
+                    return done(err);
+                if(user)
+                    return done(null, user);
+                else {
+                    var newUser = new User();
+                    newUser.facebook.id = profile.id;
+                    newUser.facebook.token = accessToken;
+                    newUser.facebook.name = profile.name.familyName + " " + profile.name.givenName;
+                    newUser.facebook.email = profile.emails[0].value;
+                    newUser.facebook.photo = "graph.facebook.com/"+ profile.id + "/picture" + "?width=200&height=200" + "&access_token=" + accessToken;
+
+                    newUser.save(function(err){
+                        if(err)
+                            throw err;
+                        return done(null, newUser);
+                    })
+                    console.log(profile);
+                }
+            });
+        });
+    }
+
+));

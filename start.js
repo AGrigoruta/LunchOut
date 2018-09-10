@@ -7,7 +7,24 @@ const express = require('express')
     , mongoose = require('mongoose')
     , keys = require('./config/keys')
     , cookieSession = require('cookie-session') // securing the session
-    , passport = require('passport');
+    , passport = require('passport')
+    , https = require("https")
+    , fs = require('fs');
+    ;
+
+const options = {
+        key: fs.readFileSync('./server.key'),
+        cert: fs.readFileSync('./server.crt'),
+        requestCert: false,
+        rejectUnauthorized: false
+    
+    
+    
+};
+
+const server = https.createServer(options,app).listen(port,function(){
+        console.log("server started at port"+port);
+});
 
 app.use(express.static('build'));
 app.get('/', function (req, res) {
@@ -31,6 +48,3 @@ mongoose.connect((keys.mongodb.dbURI), () => {
 app.use('/auth', authRoutes); //index/auth/...
 app.use('/profile', profileRoutes); //index/profile/...
 
-app.listen(port, () => {
-    console.log("App now listening for req on port " + port);
-})

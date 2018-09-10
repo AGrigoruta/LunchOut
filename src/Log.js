@@ -8,6 +8,7 @@ export default class Button extends React.Component {
     render() {
         return (
             <div className="container">
+            <a href="/auth/facebook" target="_self">
                 <div className="raw">
                     <div className="main">
                         <div className="main__log facebook">
@@ -17,6 +18,7 @@ export default class Button extends React.Component {
                     </div>
 
                 </div>
+            </a>
                 <a href="/auth/google" target="_self">
                 <div className="raw">
                     <div className="main">
