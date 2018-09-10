@@ -1,7 +1,9 @@
 @import '../devices/phone.scss';
 @import '../devices/tablet.scss';
 
-
+body{
+  background-image: url('../view/images/Background.png');
+}
 .App {
     text-align:center;
     

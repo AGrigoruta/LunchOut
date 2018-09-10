@@ -31,7 +31,7 @@
   .main__logo__icon {
     padding: 15px 10px 10px 20px;
     height: 20px;
-    margin-left: 40px; } }
+    margin-left: 1em; } }
 
 @media (min-width: 641px) and (max-width: 1070px) {
   .App {
@@ -71,6 +71,9 @@
     height: 40px;
     margin-left: 20%; } }
 
+body {
+  background-image: url("../view/images/Background.png"); }
+
 .App {
   text-align: center; }
   .App .App__header__logo {
@@ -86,7 +89,7 @@
 .main__logo__icon {
   padding: 15px 10px 10px 20px;
   height: 30px;
-  margin-left: 70px; }
+  margin-left: 25%; }
 
 .container {
   margin-top: 19%;
@@ -94,9 +97,9 @@
   width: 80%; }
 
 .raw {
-  width: 49%;
+  width: 60%;
   display: flex;
-  float: left; }
+  margin: auto; }
 
 .main {
   padding: 10px 10px 10px 10px;
@@ -113,6 +116,8 @@
     font-family: 'Arial';
     border-radius: 40px;
     color: #fff; }
+    .main .main__log:hover {
+      box-shadow: 0px 0px 10px #000000; }
     .main .main__log.google {
       background-color: #ED1E79; }
     .main .main__log.facebook {
@@ -151,7 +156,7 @@
   .main__logo__icon {
     padding: 15px 10px 10px 20px;
     height: 20px;
-    margin-left: 40px; } }
+    margin-left: 1em; } }
 
 @media (min-width: 641px) and (max-width: 1070px) {
   .App {

@@ -1,7 +1,7 @@
 .main__logo__icon{
     padding: 15px 10px 10px 20px;
     height: 30px;
-    margin-left: 70px;
+    margin-left: 25%;
 }
 
 .container{
@@ -11,14 +11,16 @@
 }
 
 .raw{
-    width:49%;
+    width:60%;
     display: flex;
-    float: left
+  
+    margin: auto;
 }
 .main{
     padding: 10px 10px 10px 10px;
     width:100%;
     display: flex;
+   
 .main__log{
     padding: 10px 0px 10px 0px;
     text-align:center;
@@ -30,6 +32,9 @@
     font-family: 'Arial';
     border-radius: 40px;
     color: #fff;
+    &:hover{
+        box-shadow: 0px 0px 10px #000000;
+    }
     &.google{
 
         background-color: #ED1E79;
