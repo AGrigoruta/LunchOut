@@ -1,7 +1,7 @@
-@import '../devices/phone.scss';
-@import '../devices/tablet.scss';
-
-
+body{
+  background-image: url('../view/images/Background.png');
+}
+a{width: 100%;}
 .App {
     text-align:center;
     
@@ -16,6 +16,7 @@
     padding: 20px;
     color: white;
   }
-
+  @import '../devices/phone.scss';
+  @import '../devices/tablet.scss';
 
 

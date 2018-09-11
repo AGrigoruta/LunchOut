@@ -4,32 +4,31 @@ import icon from './view/images/FB_Icon.png';
 import googic from './view/images/GPlus_Icon.png';
 
 
-export default class Button extends React.Component {
-    render() {
+export default class Button extends React.Component{
+    render(){
         return (
-            <div className="container">
-            <a href="/auth/facebook" target="_self">
+            <div className="container">  
                 <div className="raw">
-                    <div className="main">
-                        <div className="main__log facebook">
-                            <img src={icon} className="main__logo__icon" alt="logo" />
+                    <div className = "main">
+                    <a className="main__link" href="auth/facebook">
+                        <div className = "main__log facebook">
+                        <img src={icon} className="main__logo__icon" alt="logo" />
                             <p className="main__log__text">Login with Facebook</p>
-                        </div>
+                        </div></a>
                     </div>
-
+                    
                 </div>
-            </a>
-                <a href="/auth/google" target="_self">
                 <div className="raw">
-                    <div className="main">
-                        <div className="main__log google">
-                            <img src={googic} className="main__logo__icon" alt="logo" />
+                    <div className = "main">
+                    <a className="main__link" href="auth/google">
+                        <div className = "main__log google">
+                        <img src={googic} className="main__logo__icon" alt="logo" />
                             <p className="main__log__text">Login with Google</p>
-                        </div>
+                        </div></a>
                     </div>
                 </div>
-                </a>
-            </div>
+            </div>      
+            
         );
     }
 }

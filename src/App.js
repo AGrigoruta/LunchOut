@@ -4,10 +4,6 @@ import './css/index.css';
 import Button from './Log.js';
 
 class App extends React.Component {
-  state = {
-    response: ''
-  };
-  
   render() {
     return (
       <div className="App">
