@@ -1,22 +1,12 @@
 const mongoose = require('mongoose')
     ,Schema = mongoose.Schema
     ,userSchema = new Schema({
-    
-        google:{
-
             username: String,
-            googleId: String,
+            authId: String,
             email: String,
-            thumbnail: String
-        },
-
-        facebook:{
-            id:String,
+            thumbnail: String,
+            loggedWith: String,
             token:String,
-            name:String,
-            email:String,
-            photo:String
-        }
     })
     ,User = mongoose.model('user', userSchema);
 

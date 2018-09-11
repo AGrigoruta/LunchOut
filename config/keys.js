@@ -11,11 +11,9 @@ module.exports = {
     session:{
         cookieKey:'Oancea-Ionut-is-awesome!'
     },
-
-    'facebookAuth' : {
-        'clientID': '668203353536162',
-		'clientSecret': 'dd9674d2b279b5e3851b9461aa79fe44',
-		'callbackURL': 'https://localhost:8080/auth/facebook/callback',
-		'profileFields' : ['emails','name']
+    facebook : {
+        clientID: '668203353536162',
+		clientSecret: 'dd9674d2b279b5e3851b9461aa79fe44',
+		profileFields : ['emails','name']
     }
 }

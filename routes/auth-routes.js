@@ -23,11 +23,16 @@ router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
 })
 
 //auth fb
-router.get('/facebook',passport.authenticate('facebook',{scope:['email']}));
-router.get('/facebook/callback', 
-        passport.authenticate('facebook',{successRedirect:'/profile.html',
-                                          failureRedirect:'/'
-                                        })
-                                    
-);
+router.get('/facebook', passport.authenticate('facebook', { scope: ['email'] }));
+router.get('/facebook/callback', passport.authenticate('facebook'), (req, res) => {
+    res.send(req.user);
+    // res.redirect('/profile');
+})
+/*router.get('/facebook/callback', passport.authenticate('facebook',{
+        successRedirect: '/profile.html',
+        failureRedirect: '/'
+    })
+
+);*/
+
 module.exports = router;
