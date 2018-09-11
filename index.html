@@ -1,0 +1,109 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet">
+    <style>
+        .Card{
+            position:relative;
+            background-color: white;
+            margin:0 auto;
+            box-shadow: 0px 0px 10px gray;
+            width: 354px;
+            height:121px;
+            border-radius: 30px;
+            color: #ED1E79;
+        }
+        .Card:hover{
+            background-color: white;
+            margin:0 auto;
+            box-shadow:0px 0px 10px black;
+            width: 354px;
+            height:121px;
+            border-radius: 30px;
+        }
+        .text{
+            position: relative;
+            font-family: 'Champagne', cursive;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .location{
+            position:absolute;
+            margin-left:37px;
+            margin-top:10px;
+            text-align:left;
+        }
+        .time{
+            margin-top:10px;
+            position:absolute;
+            margin-left:246px;
+            text-align:right;
+        }
+        img{
+            position:relative;
+            width:47px;
+            height:47px;
+            margin-top:60px;
+            margin-left:275px;
+        }
+        @font-face{
+            font-family: "Champagne";
+            src:url('./Champagne.ttf')       
+        }
+        .arrow-down {
+            position:absolute;
+            width: 0; 
+            height: 0; 
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 10px solid #ED1E79;
+            margin-left:325px;
+            top:23px;
+}
+             
+    </style>
+</head>
+
+<body>
+
+    <div id="app"></div>
+    <script type="text/babel">
+        class App extends React.Component {
+            state = {
+                //a javascript object
+                location:'Tribeca',
+                time:'12:00',
+                png:'user.png'
+            }
+            handleClick(e){
+                console.log(e.target);
+            }
+            render() {
+                return (
+                    <div className="app-content">
+                        <div className="Card" onClick={this.handleClick}>
+                        <div className="arrow-down"></div>
+                        <div className="text">
+                        <p className="location">{this.state.location}</p>
+                        <p className="time">{this.state.time}</p>
+                        </div>
+                        <img src = {this.state.png}></img>
+                        <div className="arrow-down"></div>
+                        </div>
+                    </div>
+                );
+            }
+        }
+        ReactDOM.render(<App />,document.getElementById('app'));
+    </script>
+
+</body>
+
+</html>
