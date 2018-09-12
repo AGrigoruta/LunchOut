@@ -1,0 +1,88 @@
+body {
+  margin: 0 auto;
+}
+
+.popUp {
+  font-family: "Arial";
+  flex-direction: column;
+  position: absolute;
+  bottom: 20;
+  margin: 0 auto;
+  animation: pop-up 1s;
+  animation-timing-function: ease-out;
+  width: 100%;
+}
+.popUp .object {
+  margin: 0 auto;
+}
+.popUp .object .container {
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 80%;
+  height: 46.36px;
+  background-color: #0071BC;
+  border-radius: 40px;
+  color: white;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 10px gray;
+}
+.popUp .object .container .menuItems {
+  margin: 0 auto;
+}
+.popUp .object .container:hover {
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 80%;
+  height: 46.36px;
+  background-color: #0071BC;
+  border-radius: 40px;
+  color: white;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 10px black;
+}
+.popUp .object .container:hover .menuItems {
+  margin: 0 auto;
+}
+.popUp .cancel-button {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 80%;
+  height: 46.36px;
+  background-color: #0071BC;
+  border-radius: 40px;
+  color: white;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 10px gray;
+}
+.popUp .cancel-button .cancel {
+  margin: 0 auto;
+}
+.popUp .cancel-button:hover {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 80%;
+  height: 46.36px;
+  background-color: #0071BC;
+  border-radius: 40px;
+  color: white;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 0px 10px black;
+}
+.popUp .cancel-button:hover .cancel {
+  margin: 0 auto;
+}
+
+@keyframes pop-up {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+/*# sourceMappingURL=buton.css.map */
