@@ -2,6 +2,7 @@ const express = require('express')
     , app = express()
     , port = 8080
     , authRoutes = require('./routes/auth-routes')
+    , eventRoutes = require('./routes/event-routes')
     , profileRoutes = require('./routes/profile-routes')
     , passportSetupGoogle = require('./config/passport-setup-google')
     , passportSetupFacebook = require ('./config/passport-setup-facebook')
@@ -10,7 +11,8 @@ const express = require('express')
     , cookieSession = require('cookie-session') // securing the session
     , passport = require('passport')
     , https = require("https")
-    , fs = require('fs');
+    , fs = require('fs')
+    , bodyParser = require('body-parser');
 
 const options = {
         key: fs.readFileSync('./server.key'),
@@ -30,11 +32,14 @@ app.use(passport.session());
 app.use(express.static('build'));
 
 app.use('/auth', authRoutes); //index/auth/...
+app.use('/api', eventRoutes); //index/api/...
 app.use('/profile', profileRoutes); //index/profile/...
 
 app.get('*', function (req, res) {
     res.sendFile(__dirname + '/build/index.html');
 });
+app.use(bodyParser.json({useNewUrlParser: true}));
+app.use(express.static('build'));
 
 app.use(cookieSession({
     maxAge: 25 * 60 * 60 * 1000, // the cookie will last a day
@@ -44,8 +49,10 @@ app.use(cookieSession({
 
 
 //connect to mongoDB
-mongoose.connect((keys.mongodb.dbURI), () => {
-    console.log('Connected to mongodb faggots! \n\n');
-})
+mongoose.connect(keys.mongodb.dbURI , {useNewUrlParser: true}, ()=>{
+    console.log('Connected to DB! \n\n');
+});
+
+
 
 
