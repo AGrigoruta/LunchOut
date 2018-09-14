@@ -26,7 +26,7 @@ router.get('/google/redirect', passport.authenticate('google',
     // res.redirect('/profile');
 ));
 
-);
+
     // res.redirect('/profile');
 
 
