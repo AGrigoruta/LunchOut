@@ -1,8 +1,23 @@
+@font-face {
+  font-family: 'Champagne';
+  src: url('../view/fonts/Champagne.ttf') format('truetype');
+}
+.main__div{
+  height: 100%;
+}
+#root{height: 100%;}
+html{
+  height: 100%;
+}
 body{
-  background-image: url('../view/images/Background.png');
+  height: 100%;
+  margin:0px;
+ 
 }
 a{width: 100%;}
 .App {
+  height: 100%;
+  background-image: url('../view/images/Background.png');
     text-align:center;
     
     .App__header__logo {
@@ -10,11 +25,25 @@ a{width: 100%;}
     margin-top: 70px;
     display: inline-block;
     }
+    
   }
 .App__header {
     height: 150px;
     padding: 20px;
     color: white;
+  }
+  .header__title{
+    font-family: 'Champagne';
+    font-size: 30px;
+    margin-top: 0px;
+    text-align:center;
+    color: #fff;
+    padding: 10px 0px 10px 0px;
+  }
+  .header{
+    background-color: #0071bc;
+    text-align: center;
+    margin: 0px;
   }
   @import '../devices/phone.scss';
   @import '../devices/tablet.scss';

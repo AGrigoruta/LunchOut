@@ -1,10 +1,26 @@
+@font-face {
+  font-family: 'Champagne';
+  src: url("../view/fonts/Champagne.ttf") format("truetype"); }
+
+.main__div {
+  height: 100%; }
+
+#root {
+  height: 100%; }
+
+html {
+  height: 100%; }
+
 body {
-  background-image: url("../view/images/Background.png"); }
+  height: 100%;
+  margin: 0px; }
 
 a {
   width: 100%; }
 
 .App {
+  height: 100%;
+  background-image: url("../view/images/Background.png");
   text-align: center; }
   .App .App__header__logo {
     width: 30%;
@@ -15,6 +31,19 @@ a {
   height: 150px;
   padding: 20px;
   color: white; }
+
+.header__title {
+  font-family: 'Champagne';
+  font-size: 30px;
+  margin-top: 0px;
+  text-align: center;
+  color: #fff;
+  padding: 10px 0px 10px 0px; }
+
+.header {
+  background-color: #0071bc;
+  text-align: center;
+  margin: 0px; }
 
 @media (max-width: 640px) {
   .App {
@@ -199,3 +228,224 @@ a {
     padding: 25px 10px 10px 20px;
     height: 40px;
     margin-left: 20%; } }
+
+.footer {
+  z-index: -1;
+  text-align: center;
+  background-color: #0071BC;
+  color: white;
+  font-size: 20px;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%; }
+
+.footer__icon__homeic {
+  width: 19%;
+  display: inline; }
+  .footer__icon__homeic :hover {
+    box-shadow: 0px 3px 0px #f8f8f8; }
+  .footer__icon__homeic img {
+    width: 41px;
+    height: 41px;
+    padding: 7px;
+    padding: 7px 12px 7px 12px; }
+
+.footer__icon__searchic {
+  width: 19%;
+  display: inline; }
+  .footer__icon__searchic :hover {
+    box-shadow: 0px 3px 0px #f8f8f8; }
+  .footer__icon__searchic img {
+    width: 39px;
+    height: 39px;
+    padding: 7px;
+    padding: 7px 12px 7px 12px; }
+
+.footer__icon__addic {
+  width: 19%;
+  display: inline; }
+  .footer__icon__addic :hover {
+    box-shadow: 0px 3px 0px #f8f8f8; }
+  .footer__icon__addic img {
+    width: 34px;
+    height: 39px;
+    padding: 7px 12px 7px 12px; }
+
+.footer__icon__bellic {
+  width: 19%;
+  display: inline; }
+  .footer__icon__bellic :hover {
+    box-shadow: 0px 3px 0px #f8f8f8; }
+  .footer__icon__bellic img {
+    width: 42px;
+    height: 42px;
+    padding: 7px;
+    padding: 7px 12px 7px 12px; }
+
+.footer__icon__profileic {
+  width: 19%;
+  display: inline; }
+  .footer__icon__profileic :hover {
+    box-shadow: 0px 3px 0px #f8f8f8; }
+  .footer__icon__profileic img {
+    width: 38px;
+    height: 38px;
+    padding: 7px;
+    padding: 7px 12px 7px 12px; }
+
+body {
+  margin: 0 auto; }
+
+.popUp {
+  font-family: 'Arial';
+  flex-direction: column;
+  position: absolute;
+  bottom: 20;
+  margin: 0 auto;
+  animation: pop-up 1s;
+  animation-timing-function: ease-out;
+  width: 100%; }
+  .popUp .object {
+    margin: 0 auto; }
+    .popUp .object .container {
+      margin: 0 auto;
+      margin-top: 10px;
+      width: 80%;
+      height: 46.36px;
+      background-color: #0071BC;
+      border-radius: 40px;
+      color: white;
+      display: flex;
+      align-items: center;
+      box-shadow: 0px 0px 10px gray; }
+      .popUp .object .container .menuItems {
+        margin: 0 auto; }
+    .popUp .object .container:hover {
+      margin: 0 auto;
+      margin-top: 10px;
+      width: 80%;
+      height: 46.36px;
+      background-color: #0071BC;
+      border-radius: 40px;
+      color: white;
+      display: flex;
+      align-items: center;
+      box-shadow: 0px 0px 10px black; }
+      .popUp .object .container:hover .menuItems {
+        margin: 0 auto; }
+  .popUp .cancel-button {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 80%;
+    height: 46.36px;
+    background-color: #0071BC;
+    border-radius: 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 10px gray; }
+    .popUp .cancel-button .cancel {
+      margin: 0 auto; }
+  .popUp .cancel-button:hover {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 80%;
+    height: 46.36px;
+    background-color: #0071BC;
+    border-radius: 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 10px black; }
+    .popUp .cancel-button:hover .cancel {
+      margin: 0 auto; }
+
+@keyframes pop-up {
+  0% {
+    left: -100%; }
+  100% {
+    left: 0%; } }
+
+.Card {
+  background-color: white;
+  width: 90%;
+  height: 121px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border-radius: 40px;
+  box-shadow: 0px 0px 10px gray; }
+  .Card .text {
+    font-family: "Champagne";
+    width: 90%;
+    color: #ED1E79;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin-top: 15px; }
+    .Card .text .location {
+      order: 1;
+      margin-left: 7%;
+      margin-bottom: 0;
+      margin-top: 0; }
+    .Card .text .time {
+      order: 2;
+      margin-right: 5%;
+      margin-bottom: 0;
+      margin-top: 0; }
+  .Card .CardRow {
+    display: flex; }
+    .Card .CardRow .text {
+      order: 1; }
+    .Card .CardRow .arrow-down {
+      margin-right: 5%;
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 17px solid #ED1E79;
+      border-right: 17px solid transparent;
+      border-bottom: 17px solid transparent;
+      border-left: 17px solid transparent;
+      order: 2;
+      margin-top: 25px; }
+    .Card .CardRow .arrow-down:hover {
+      margin-right: 5%;
+      margin-top: 25px;
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 17px solid pink;
+      border-right: 17px solid transparent;
+      border-bottom: 17px solid transparent;
+      border-left: 17px solid transparent;
+      order: 2; }
+
+.Card .images {
+  margin-right: 14%; }
+  .Card .images img {
+    width: 47px;
+    height: 47px;
+    margin-top: 0%;
+    margin-right: 1%;
+    float: right;
+    float: bottom; }
+  .Card .images img:hover {
+    width: 47px;
+    height: 47px;
+    margin-top: 1px;
+    margin-right: 1%;
+    float: right;
+    float: bottom; }
+
+.Card:hover {
+  box-shadow: 0px 0px 10px black; }
+
+.CartMenu {
+  height: 70%;
+  display: flex;
+  align-items: flex-end;
+  z-index: 1; }
+
+.events__div {
+  position: relative; }

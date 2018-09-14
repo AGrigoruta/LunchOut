@@ -1,3 +1,10 @@
+//importing  main page and log scss
+
 @import './main/App.scss';
 @import './main/Log.scss';
+@import './main/footer.scss';
 
+//importing  events scss
+@import './main/events/buton.scss';
+@import './main/events/card.scss';
+@import './main/events/user.scss';

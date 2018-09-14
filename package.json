@@ -10,7 +10,7 @@
     "dev": "npm run watch-css && react-scripts start",
     "start": "npm run build-css && npm run build && npm run server",
     "server": "nodemon start.js",
-    "build": "react-scripts build",
+    "build": "react-scripts build --history-api-fallback",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
@@ -33,6 +33,7 @@
     "passport-google-oauth20": "^1.0.0",
     "react": "^16.5.0",
     "react-dom": "^16.4.2",
+    "react-router": "^3.2.1",
     "react-scripts": "^1.1.5",
     "sass": "^1.13.2"
   },

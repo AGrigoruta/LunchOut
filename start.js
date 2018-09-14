@@ -24,7 +24,7 @@ const server = https.createServer(options,app).listen(port,function(){
 });
 
 app.use(express.static('build'));
-app.get('/', function (req, res) {
+app.get('*', function (req, res) {
     res.sendFile(__dirname + '/build/index.html');
 });
 
