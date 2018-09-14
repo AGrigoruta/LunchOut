@@ -25,6 +25,10 @@ router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
     // res.redirect('/profile');
 })
 
+// router.get('/google/redirect', 
+// 	  passport.authenticate('google', { successRedirect: '/profile',
+// 	                                      failureRedirect: '/' }))
+
 //auth fb
 router.get('/facebook', passport.authenticate('facebook', { scope: ['email'] }));
 router.get('/facebook/callback', passport.authenticate('facebook'), (req, res) => {

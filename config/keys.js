@@ -6,7 +6,7 @@ module.exports = {
         clientSecret:'RP9fKdHNIwVdaZV4y0tx_BF4'
     },
     mongodb:{
-        dbURI:'mongodb://lunchout:qwerty1234@ds123946.mlab.com:23946/lunch-out-user-database'
+        dbURI:'mongodb://localhost:27017/newDB2'
     },
     session:{
         cookieKey:'Oancea-Ionut-is-awesome!'
