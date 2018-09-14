@@ -27,9 +27,6 @@ const server = https.createServer(options,app).listen(port,function(){
 
 app.use(bodyParser.json({useNewUrlParser: true}));
 app.use(express.static('build'));
-app.get('*', function (req, res) {
-    res.sendFile(__dirname + '/build/index.html');
-});
 
 app.use(cookieSession({
     maxAge: 25 * 60 * 60 * 1000, // the cookie will last a day
@@ -42,10 +39,13 @@ app.use(passport.session());
 
 //connect to mongoDB
 mongoose.connect(keys.mongodb.dbURI , {useNewUrlParser: true}, ()=>{
-        console.log('Connected to DB! \n\n');
+    console.log('Connected to DB! \n\n');
 });
 
 app.use('/auth', authRoutes); //index/auth/...
 app.use('/api', eventRoutes); //index/api/...
 app.use('/profile', profileRoutes); //index/profile/...
+app.get('*', function (req, res) {
+    res.sendFile(__dirname + '/build/index.html');
+});
 
