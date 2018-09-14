@@ -11,10 +11,7 @@ export default class User extends React.Component{
                 <div className="main__card__component">
                 <Card />
                 </div>
-                <div  className="CartMenu">
                 <ContMenu />
-                </div>
-            
                 <Footer />
             </div>
 

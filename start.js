@@ -23,7 +23,15 @@ const server = https.createServer(options,app).listen(port,function(){
         console.log("Server started at port :"+port);
 });
 
+//initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(express.static('build'));
+
+app.use('/auth', authRoutes); //index/auth/...
+app.use('/profile', profileRoutes); //index/profile/...
+
 app.get('*', function (req, res) {
     res.sendFile(__dirname + '/build/index.html');
 });
@@ -33,15 +41,11 @@ app.use(cookieSession({
     keys: [keys.session.cookieKey]
 }));
 
-//initialize passport
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 //connect to mongoDB
 mongoose.connect((keys.mongodb.dbURI), () => {
     console.log('Connected to mongodb faggots! \n\n');
 })
 
-app.use('/auth', authRoutes); //index/auth/...
-app.use('/profile', profileRoutes); //index/profile/...
 
