@@ -36,8 +36,8 @@ export default class ContMenu extends React.Component {
                             })
                         }
                         </div>
-                        <div className="cancel-button">
-                            <p className="cancel" onClick={ this.props.callbackFromParent}>Cancel</p>
+                        <div className="cancel-button" onClick={ this.props.callbackFromParent}>
+                            <p className="cancel" >Cancel</p>
                         </div>
                     </div>
                 ) : ''

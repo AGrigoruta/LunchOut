@@ -19,22 +19,7 @@ export default class Card extends React.Component {
                     location: 'Beer Platz',
                     time: '13:00',
                     png: userPic
-                },
-                {
-                    location: 'Beer Platz',
-                    time: '13:00',
-                    png: userPic
-                },
-                {
-                    location: 'Beer Platz',
-                    time: '13:00',
-                    png: userPic
-                },
-                {
-                    location: 'Beer Platz',
-                    time: '13:00',
-                    png: userPic
-                },
+                }
             ]
         }
 

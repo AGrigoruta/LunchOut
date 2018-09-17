@@ -456,7 +456,9 @@ body {
   height: 100%;
   position: relative; }
 
-<<<<<<< HEAD
+.arrowOpacity {
+  opacity: 0.2; }
+
 .noEventss {
   width: 90%;
   display: block;
@@ -474,7 +476,3 @@ body {
   font-size: 30px;
   display: block;
   text-align: center; }
-=======
-.arrowOpacity {
-  opacity: 0.2; }
->>>>>>> dev
