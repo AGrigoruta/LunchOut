@@ -3,6 +3,7 @@ body{
     margin: 0 auto;
 }
 .popUp {
+    
     font-family: 'Arial';
     flex-direction:column;
     position:absolute; 
@@ -11,6 +12,12 @@ body{
     animation: pop-up 1s;
     animation-timing-function: ease-out; 
     width:100%;
+    z-index: 1;
+    position: fixed;
+    margin-bottom: 10px;
+    .popUp__row{
+        position:fixed;
+    }
     .object {
         margin: 0 auto;
 

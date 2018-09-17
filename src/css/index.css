@@ -230,7 +230,7 @@ a {
     margin-left: 20%; } }
 
 .footer {
-  z-index: -1;
+  z-index: 0;
   text-align: center;
   background-color: #0071BC;
   color: white;
@@ -305,7 +305,12 @@ body {
   margin: 0 auto;
   animation: pop-up 1s;
   animation-timing-function: ease-out;
-  width: 100%; }
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+  margin-bottom: 10px; }
+  .popUp .popUp__row {
+    position: fixed; }
   .popUp .object {
     margin: 0 auto; }
     .popUp .object .container {
@@ -450,3 +455,6 @@ body {
 .events__div {
   height: 100%;
   position: relative; }
+
+.arrowOpacity {
+  opacity: 0.2; }

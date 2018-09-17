@@ -7,7 +7,7 @@
     "help-css": "node-sass-chokidar -help",
     "build-css": "node-sass-chokidar src/sass/index.scss -o src/css/",
     "watch-css": "npm run build-css && node-sass-chokidar src/sass/index.scss -o src/css/ --watch --recursive",
-    "dev": "npm run watch-css && react-scripts start",
+    "dev": "react-scripts start",
     "start": "npm run build-css && npm run build && npm run server",
     "build": "react-scripts build --history-api-fallback",
     "server": "nodemon --inspect start.js",
