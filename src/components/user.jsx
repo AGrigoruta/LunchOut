@@ -36,7 +36,7 @@ export default class User extends React.Component{
                     toggleArrow={ this.state.toggleArrow }
                     callbackFromParent={this.callbackHandleArrow}
                 />
-                <Footer className={this.state.toggleArrow ? "" : "arrowOpacity"} />
+                <Footer toggleArrow={ !this.state.toggleArrow } />
             </div>
 
 
