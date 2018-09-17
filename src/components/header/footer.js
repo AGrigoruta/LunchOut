@@ -9,7 +9,7 @@ import profileic from '../../view/images/user-.png';
 export default class Footer extends React.Component{
 render(){
 return(
-<div className="footer">
+<div className={this.props.toggleArrow ? "footer" : "footer arrowOpacity"}>
 <div className="footer__icon__homeic">
 <img src={homeic}/>
 </div>

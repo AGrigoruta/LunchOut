@@ -3,13 +3,14 @@ import Header from "./header/header";
 import Footer from "./header/footer.js";
 import Card from "./events/card.jsx";
 import ContMenu from "./events/contextualmenu.jsx";
+import '../css/index.css'; 
 import NoEvents from "./events/noEvents.jsx"
 export default class User extends React.Component{
 
     constructor(props){
         super(props);
         this.state = {
-            toggleArrow:true,
+            toggleArrow:false,
             isLoading: true,
             contacts: []
         }
@@ -18,7 +19,7 @@ export default class User extends React.Component{
 
     callbackHandleArrow(dataFromChildren){
         this.setState({
-            toggleArrow:dataFromChildren
+            toggleArrow: !this.state.toggleArrow
         })
     }
     componentDidMount(){
@@ -52,15 +53,17 @@ export default class User extends React.Component{
                 <div className="main__card__component">
                 {
                      isLoading && contacts.length > 0 ? contacts.map(contact =>{
-                         return <Card callbackFromParent={this.callbackHandleArrow}/>
+                         return  <Card callbackFromParent={this.callbackHandleArrow}
+                         toggleArrow={ !this.state.toggleArrow }/>
                          
                      }) : <NoEvents />
                 }
                 </div>
                 <ContMenu 
-                    toggleArrow={ !this.state.toggleArrow }
+                toggleArrow={ this.state.toggleArrow }
+                callbackFromParent={this.callbackHandleArrow}
                 />
-                <Footer className={this.state.toggleArrow ? "" : "arrowOpacity"} />
+                <Footer toggleArrow={ !this.state.toggleArrow } />
             </div>
 
 
