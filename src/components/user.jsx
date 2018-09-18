@@ -30,21 +30,52 @@ export default class User extends React.Component{
 
         fetch('https://localhost:8080/api/event')
         .then(response =>response.json())
-        .then(parsedJSON => parsedJSON.map(user =>({
+        .then(parsedJSON => parsedJSON.map((user) =>{
+
            
-            name: `${user.schemaId}`,
-            location: `${user.location}`,
-            startTime : `${user.startTime}`
-        })))
+            return {
+                name: `${user.schemaId}`,
+                location: `${user.location}`,
+                startTime : `${user.startTime}`,
+                participantsID : user.participantsID,
+                photo: []
+                
+            };
+        }))
         .then(contacts => this.setState({
             contacts,
             isLoading: true
-        }))
-        .catch(error => console.log('parsing failed', error))
-
-
+        })).then((re) => {
+        
+        // let photosBackup = []
+        this.state.contacts.forEach((element, i) => {
+            for(var index=0;index<element.participantsID.length;index++ ){
+                
+                let imagesBackup = Object.assign([], element.photo);
+                fetch('https://localhost:8080/api/user/'+element.participantsID[index])
+                .then(res => res.json())
+                .then(pars => {
+                    
+                    
+                    
+                    let stateBackup = Object.assign({}, this.state);
+                    
+                    imagesBackup.push(pars.thumbnail);
+                    // element.photo.push(pars.thumbnail);
+                    
+                    stateBackup.contacts[i].photo = imagesBackup;
+                    this.setState(stateBackup)
+                    // console.log(stateBackup);
+                 } )
+                
+            }
+            
+        })}
+        ).catch(error => console.log('parsing failed', error))
     }
-
+    
+    
+    
     render(){
         const {isLoading,contacts} = this.state;
         return(
@@ -53,8 +84,8 @@ export default class User extends React.Component{
                 <div className="main__card__component">
                 {
                      isLoading && contacts.length > 0 ? contacts.map(contact =>{
-                         const { name, location, startTime} = contact
-                         return  <Card location={location} time={startTime} callbackFromParent={this.callbackHandleArrow}
+                         const { location, startTime, photo} = contact
+                         return  <Card location={location} time={startTime} photo={photo} callbackFromParent={this.callbackHandleArrow}
                          toggleArrow={ !this.state.toggleArrow }/>
                          
                      }) : <NoEvents />
