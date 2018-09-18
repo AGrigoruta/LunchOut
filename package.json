@@ -20,6 +20,7 @@
   "author": "Oancea Ionut Eugen <oanceaionut15@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "cookie-session": "^2.0.0-beta.3",

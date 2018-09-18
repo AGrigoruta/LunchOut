@@ -6,7 +6,7 @@ import App from './App';
 import Log from './Log';
 import User from "./components/user"
 import registerServiceWorker from './registerServiceWorker';
-
+import Add from './components/add/add.js';
 
 
 class Home extends React.Component{
@@ -16,6 +16,7 @@ class Home extends React.Component{
                 <div className="main__div">
                     <Route path="/" component={App} exact />
                     <Route path="/user" component={User}/>
+                    <Route path="/add" component={Add}/>
                 </div>
             </BrowserRouter>
         );

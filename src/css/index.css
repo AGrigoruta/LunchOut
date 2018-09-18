@@ -450,3 +450,21 @@ body {
 .events__div {
   height: 100%;
   position: relative; }
+
+.noEventss {
+  width: 90%;
+  display: block;
+  margin: auto;
+  text-align: center; }
+
+.noEventsLogo {
+  width: 263px;
+  height: 271px;
+  text-align: center;
+  display: block; }
+
+.noEventsText {
+  font-family: "Champagne";
+  color: #ED1E79;
+  font-size: 30px;
+  display: block; }
