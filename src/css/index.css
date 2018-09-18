@@ -528,3 +528,21 @@ body {
   width: 94%;
   margin: auto;
   box-shadow: 0px 0px 10px #949494; }
+
+.noEventss {
+  width: 90%;
+  display: block;
+  margin: auto;
+  text-align: center; }
+
+.noEventsLogo {
+  width: 263px;
+  height: 271px;
+  text-align: center; }
+
+.noEventsText {
+  font-family: "Champagne";
+  color: #ED1E79;
+  font-size: 30px;
+  display: block;
+  text-align: center; }

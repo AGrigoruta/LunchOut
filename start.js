@@ -28,6 +28,8 @@ const server = https.createServer(options,app).listen(port,function(){
 //initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyParser.json({useNewUrlParser: true}));
+app.use(express.static('build'));
 
 app.use(express.static('build'));
 
@@ -38,8 +40,6 @@ app.use('/profile', profileRoutes); //index/profile/...
 app.get('*', function (req, res) {
     res.sendFile(__dirname + '/build/index.html');
 });
-app.use(bodyParser.json({useNewUrlParser: true}));
-app.use(express.static('build'));
 
 app.use(cookieSession({
     maxAge: 25 * 60 * 60 * 1000, // the cookie will last a day
