@@ -5,12 +5,13 @@ var event = require('../models/event-model.js');
 router.route('/event')
 
 .get(function(req,res){
-    event.find(function (err,events){
+  
+    event.find(function (err, events){
         if(err){
             return res.send(err);
         }
         res.json(events);
-    });
+    })
 })
       
 .post(function(req,res){

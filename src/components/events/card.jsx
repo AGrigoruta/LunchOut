@@ -2,29 +2,35 @@ import React from 'react';
 import userPic from '../../view/images/user.png';
 
 export default class Card extends React.Component {
-    state = {
-        //a javascript object
-        objects: [
-            {
-                location: 'Tribeca',
-                time: '12:00',
-                png: userPic
-            },
-            {
-                location: 'Beer Platz',
-                time: '13:00',
-                png: userPic
-            },
-        ]
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+
+            arrowToggle: true,
+            objects: [
+                {
+                    location: 'Tribeca',
+                    time: '12:00',
+                    png: userPic
+                },
+                {
+                    location: 'Beer Platz',
+                    time: '13:00',
+                    png: userPic
+                }
+            ]
+        }
+
+        
+
     }
-    // Update(a){
-    //     let newState = Object.assign({}, this.state);
-    //     newState.location = a;
-    //     this.setState(newState);
-    // }
+   
+
     render() {
         return (
-            <div className="app-content">
+            <div className={this.props.toggleArrow ? "" : "app-content arrowOpacity"}>
                 {
                     this.state.objects.map((item, index) => {
                         return (
@@ -34,7 +40,7 @@ export default class Card extends React.Component {
                                         <p className="location">{item.location}</p>
                                         <p className="time">{item.time}</p>
                                     </div>
-                                    <div className="arrow-down"></div>
+                                   <div className="arrow-down" onClick={this.props.callbackFromParent} ></div> 
                                 </div>
                                 <div className="images">
                                     <img src={item.png}></img>

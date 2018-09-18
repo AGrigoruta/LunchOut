@@ -3,31 +3,38 @@ import Header from "./header/header";
 import Footer from "./header/footer.js";
 import Card from "./events/card.jsx";
 import ContMenu from "./events/contextualmenu.jsx";
-import NoEvents from "./events/noEvents.jsx";
-
+import NoEvents from "./events/noEvents.jsx"
+import '../css/index.css'; 
 export default class User extends React.Component{
 
     constructor(props){
         super(props);
         this.state = {
+            toggleArrow:false,
             isLoading: true,
             contacts: []
         }
+        this.callbackHandleArrow = this.callbackHandleArrow.bind(this);
     }
 
+    callbackHandleArrow(dataFromChildren){
+        this.setState({
+            toggleArrow: !this.state.toggleArrow
+        })
+    }
     componentDidMount(){
         this.fetchData();
     }
 
     fetchData(){
 
-        fetch('https://randomuser.me/api/?results=4&nat=us')
+        fetch('https://localhost:8080/api/event')
         .then(response =>response.json())
-        .then(parsedJSON => parsedJSON.results.map(user =>({
+        .then(parsedJSON => parsedJSON.map(user =>({
            
-            name: `${user.name.first} ${user.name.last}`,
-            username: `${user.login.username}`,
-            location: `${user.location.street}, ${user.location.city}`
+            name: `${user.schemaId}`,
+            username: `${user.startTime}`,
+            location: `${user.location}`
         })))
         .then(contacts => this.setState({
             contacts,
@@ -45,11 +52,18 @@ export default class User extends React.Component{
                 <Header name="Dashboard" />
                 <div className="main__card__component">
                 {
-                    isLoading && contacts.length > 0 ? (<NoEvents/>) : ''
+                     isLoading && contacts.length > 0 ? contacts.map(contact =>{
+                         return  <Card callbackFromParent={this.callbackHandleArrow}
+                         toggleArrow={ !this.state.toggleArrow }/>
+                         
+                     }) : <NoEvents />
                 }
                 </div>
-                <ContMenu />
-                <Footer />
+                <ContMenu 
+                toggleArrow={ this.state.toggleArrow }
+                callbackFromParent={this.callbackHandleArrow}
+                />
+                <Footer toggleArrow={ this.state.toggleArrow } />
             </div>
 
 

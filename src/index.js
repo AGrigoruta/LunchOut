@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter, Route} from "react-router-dom";
 import './css/index.css';
 import App from './App';
-import Log from './Log';
 import User from "./components/user"
 import registerServiceWorker from './registerServiceWorker';
 import Add from './components/add/add.js';
+import newEvent from "./components/newEvent";
+
 
 
 class Home extends React.Component{
@@ -17,6 +18,7 @@ class Home extends React.Component{
                     <Route path="/" component={App} exact />
                     <Route path="/user" component={User}/>
                     <Route path="/add" component={Add}/>
+                    <Route path="/add" component={newEvent}/>
                 </div>
             </BrowserRouter>
         );

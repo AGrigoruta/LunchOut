@@ -28,15 +28,14 @@ const server = https.createServer(options,app).listen(port,function(){
 //initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyParser.json({useNewUrlParser: true}));
+app.use(express.static('build'));
 
 app.use(express.static('build'));
 
 app.use('/auth', authRoutes); //index/auth/...
 app.use('/api', eventRoutes); //index/api/...
 app.use('/profile', profileRoutes); //index/profile/...
-
-app.use(bodyParser.json({useNewUrlParser: true}));
-app.use(express.static('build'));
 
 app.use(cookieSession({
     maxAge: 25 * 60 * 60 * 1000, // the cookie will last a day
