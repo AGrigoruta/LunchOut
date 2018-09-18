@@ -17,7 +17,7 @@ export default class User extends React.Component{
 
     }
 
-    callbackHandleArrow(dataFromChildren) {
+    callbackHandleArrow() {
         this.setState({
             toggleArrow: !this.state.toggleArrow
         })
@@ -36,7 +36,7 @@ export default class User extends React.Component{
                     toggleArrow={ this.state.toggleArrow }
                     callbackFromParent={this.callbackHandleArrow}
                 />
-                <Footer toggleArrow={ !this.state.toggleArrow } />
+                <Footer toggleArrow={ this.state.toggleArrow } />
             </div>
 
 
