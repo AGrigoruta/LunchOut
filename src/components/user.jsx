@@ -33,8 +33,8 @@ export default class User extends React.Component{
         .then(parsedJSON => parsedJSON.map(user =>({
            
             name: `${user.schemaId}`,
-            username: `${user.startTime}`,
-            location: `${user.location}`
+            location: `${user.location}`,
+            startTime : `${user.startTime}`
         })))
         .then(contacts => this.setState({
             contacts,
@@ -53,7 +53,8 @@ export default class User extends React.Component{
                 <div className="main__card__component">
                 {
                      isLoading && contacts.length > 0 ? contacts.map(contact =>{
-                         return  <Card callbackFromParent={this.callbackHandleArrow}
+                         const { name, location, startTime} = contact
+                         return  <Card location={location} time={startTime} callbackFromParent={this.callbackHandleArrow}
                          toggleArrow={ !this.state.toggleArrow }/>
                          
                      }) : <NoEvents />

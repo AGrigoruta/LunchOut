@@ -7,7 +7,7 @@ export default class addEvent extends React.Container{
             <div className="addEventContainer">
                 <div className="addEventContainer__search">
                    <form>
-                       <input type="text" name="search" placeholder="" >
+                       <input type="text" name="search" placeholder="" />
                    </form>
                 </div>
             </div>
