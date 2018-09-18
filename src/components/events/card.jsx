@@ -13,7 +13,7 @@ export default class Card extends React.Component {
                 {
                     location: 'Tribeca',
                     time: '12:00',
-                    png: 'https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2041628029229996&height=200&width=200&ext=1539802740&hash=AeQETHIncsgHM5D1'
+                    png: 'https://lh3.googleusercontent.com/-10a7Qumq7yo/AAAAAAAAAAI/AAAAAAAAAAA/APUIFaPNExVhfEyE2FojEFLjOvku3H9QcQ/mo/photo.jpg?sz=50'
                 }
             ]
         }
