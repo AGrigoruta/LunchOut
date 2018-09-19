@@ -53,7 +53,7 @@ $mainColor: #949494;
 }
 
 .input-field {
-    border: 1px solid $mainColor;
+    border: 2px solid $mainColor;
     width: 100%;
     padding: 7px;
     outline: none;
@@ -67,7 +67,7 @@ $mainColor: #949494;
     border-left: 0px ;
 }
 .icon:focus {
-    border: 1px solid  $mainColor;
+    border: 2px solid  $mainColor;
     border-left: 0px ;
 }
 
