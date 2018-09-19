@@ -11,11 +11,12 @@ export default class User extends React.Component{
     render(){
         return(
             <div className = "events__div"> 
-                <Header name="Add Even" />
+                <Header name="Add Event" />
                     <div className="main__card__component">
                         <BrowserRouter>
                             <Route path="/add" component={addEvent} />
                         </BrowserRouter>
+                        
                     </div>
                 <Footer />
             </div>

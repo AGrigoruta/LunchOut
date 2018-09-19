@@ -24,10 +24,13 @@ a {
   text-align: center; }
   .App .App__header__logo {
     width: 30%;
+    display: block;
     margin-top: 70px;
-    display: inline-block; }
+    display: inline-block;
+    padding-bottom: 0px; }
 
 .App__header {
+  width: 100%;
   height: 150px;
   padding: 20px;
   color: white;
@@ -65,7 +68,7 @@ a {
       margin-top: 70px;
       display: inline-block; }
   .container {
-    margin-top: 39%;
+    margin-top: 80%;
     display: inline-block;
     width: 80%; }
   .raw {
@@ -100,7 +103,7 @@ a {
       margin-top: 70px;
       display: inline-block; }
   .container {
-    margin-top: 60%;
+    margin-top: 70%;
     display: inline-block;
     width: 80%; }
   .raw {
@@ -176,7 +179,7 @@ a {
       margin-top: 70px;
       display: inline-block; }
   .container {
-    margin-top: 39%;
+    margin-top: 80%;
     display: inline-block;
     width: 80%; }
   .raw {
@@ -211,7 +214,7 @@ a {
       margin-top: 70px;
       display: inline-block; }
   .container {
-    margin-top: 60%;
+    margin-top: 70%;
     display: inline-block;
     width: 80%; }
   .raw {
@@ -528,6 +531,18 @@ body {
   width: 94%;
   margin: auto;
   box-shadow: 0px 0px 10px #949494; }
+
+.event__clock {
+  width: 100%;
+  text-align: center; }
+  .event__clock span {
+    display: inline-block; }
+
+.react-timekeeper__hour-select {
+  color: white; }
+
+.react-timekeeper__minute-select {
+  color: #c7c2c2; }
 
 .noEventss {
   width: 90%;

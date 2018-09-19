@@ -6,7 +6,7 @@ import App from './App';
 import User from "./components/user"
 import registerServiceWorker from './registerServiceWorker';
 import newEvent from "./components/newEvent";
-
+import timeSet from "./components/events/timeset";
 
 
 class Home extends React.Component{
@@ -17,6 +17,7 @@ class Home extends React.Component{
                     <Route path="/" component={App} exact />
                     <Route path="/user" component={User}/>
                     <Route path="/add" component={newEvent}/>
+                    <Route path="/timer" component={timeSet} />
                 </div>
             </BrowserRouter>
         );
