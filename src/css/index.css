@@ -24,10 +24,13 @@ a {
   text-align: center; }
   .App .App__header__logo {
     width: 30%;
+    display: block;
     margin-top: 70px;
-    display: inline-block; }
+    display: inline-block;
+    padding-bottom: 0px; }
 
 .App__header {
+  width: 100%;
   height: 150px;
   padding: 20px;
   color: white;
@@ -65,7 +68,7 @@ a {
       margin-top: 70px;
       display: inline-block; }
   .container {
-    margin-top: 39%;
+    margin-top: 80%;
     display: inline-block;
     width: 80%; }
   .raw {
@@ -100,7 +103,7 @@ a {
       margin-top: 70px;
       display: inline-block; }
   .container {
-    margin-top: 60%;
+    margin-top: 70%;
     display: inline-block;
     width: 80%; }
   .raw {
@@ -176,7 +179,7 @@ a {
       margin-top: 70px;
       display: inline-block; }
   .container {
-    margin-top: 39%;
+    margin-top: 80%;
     display: inline-block;
     width: 80%; }
   .raw {
@@ -211,7 +214,7 @@ a {
       margin-top: 70px;
       display: inline-block; }
   .container {
-    margin-top: 60%;
+    margin-top: 70%;
     display: inline-block;
     width: 80%; }
   .raw {
@@ -501,13 +504,13 @@ body {
   color: #c4c4c4;
   min-width: 50px;
   text-align: center;
-  border: 1px solid #949494;
+  border: 2px solid #949494;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   border-right: none; }
 
 .input-field {
-  border: 1px solid #949494;
+  border: 2px solid #949494;
   width: 100%;
   padding: 7px;
   outline: none;
@@ -578,6 +581,18 @@ body {
   height: 26px;
   margin: 10px;
   border-radius: 15px; }
+
+.event__clock {
+  width: 100%;
+  text-align: center; }
+  .event__clock span {
+    display: inline-block; }
+
+.react-timekeeper__hour-select {
+  color: white; }
+
+.react-timekeeper__minute-select {
+  color: #c7c2c2; }
 
 .noEventss {
   width: 90%;

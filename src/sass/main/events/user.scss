@@ -45,7 +45,7 @@ $mainColor: #949494;
     color: rgb(196, 196, 196);
     min-width: 50px;
     text-align: center;
-    border:1px solid $mainColor;
+    border:2px solid $mainColor;
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
     border-right: none;
@@ -133,3 +133,16 @@ $mainColor: #949494;
     border-radius:15px;
 
 }
+
+//event timer style
+.event__clock{
+    width: 100%;
+    text-align: center;
+    span{
+        display: inline-block;
+    }
+}
+.react-timekeeper__hour-select{
+    color: white;
+}
+.react-timekeeper__minute-select{color: rgb(199, 194, 194);}

@@ -3,15 +3,26 @@ import "../../css/index.css";
 import Search from "../events/search.js";
 import axios from 'axios';
 import placeholder from "../../view/images/placeholder.png"
+import searchEvent from "../../view/images/searchicon.png";
+import "../../sass/main/events/user.scss";
+import Timeset from "./timeset.jsx";
 
 export default class addEvent extends React.Component{
     constructor(props){
         super(props);
-
+        
         this.state={
             latlong: "",
-            venues:[]
+            venues:[],
+            clickTimerButton: true
         };
+        this.handleTimer = this.handleTimer.bind(this);
+    }
+    handleTimer(){
+        this.setState({
+            clickTimerButton: ! this.state.clickTimerButton
+            
+            })
     }
     componentDidMount(){
         this.getLocation();
@@ -42,11 +53,12 @@ export default class addEvent extends React.Component{
             this.setState({venues:response.data.response.groups[0].items})
             
         });
+
     }
     render(){
         return(
             <div className="addEventContainer">
-               <Search getVenues={this.getVenues}/>
+            <Search getVenues={this.getVenues}></Search>
                 <div className="RestaurantsContainer">{this.state.venues.map(venue=>{
                 return (
                 <div className="RestaurantsList">  
@@ -59,6 +71,14 @@ export default class addEvent extends React.Component{
                 </div>)
             })}
             </div> 
+                <div className="event__clock">
+                
+                <Timeset
+                     handleVisibility = {this.handleTimer}
+                    divdisplay={this.state.clickTimerButton}
+                 />
+                </div>
+               <button onClick={this.handleTimer }>Click here</button>
             </div>
         );
     }
