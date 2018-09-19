@@ -442,8 +442,10 @@ body {
       order: 2; }
 
 .Card .images {
-  margin-right: 14%; }
+  margin-right: 14%;
+  display: block; }
   .Card .images img {
+    border-radius: 50%;
     width: 47px;
     height: 47px;
     margin-top: 0%;
@@ -504,7 +506,7 @@ body {
   color: #c4c4c4;
   min-width: 50px;
   text-align: center;
-  border: 1px solid #949494;
+  border: 2px solid #949494;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   border-right: none; }
@@ -519,7 +521,7 @@ body {
   border-left: none; }
 
 .input-field:focus {
-  border: 1px solid #949494;
+  border: 2px solid #949494;
   border-left: 0px; }
 
 .icon:focus {
@@ -527,22 +529,58 @@ body {
   border-left: 0px; }
 
 .addEventContainer {
+  height: calc(100vh - 120px);
+  overflow: auto;
   height: 100%;
   width: 94%;
-  margin: auto;
-  box-shadow: 0px 0px 10px #949494; }
-
-.event__clock {
-  width: 100%;
-  text-align: center; }
-  .event__clock span {
-    display: inline-block; }
-
-.react-timekeeper__hour-select {
-  color: white; }
-
-.react-timekeeper__minute-select {
-  color: #c7c2c2; }
+  margin: auto; }
+  .addEventContainer .RestaurantsList {
+    list-style-type: none;
+    margin: auto;
+    display: flex;
+    margin-bottom: 15px;
+    border-bottom: 1px solid grey;
+    width: 90%; }
+  .addEventContainer .RestaurantStyle {
+    font-family: "Champagne";
+    color: #ED1E79;
+    font-size: 30px;
+    font-weight: bold; }
+  .addEventContainer .LocationStyle {
+    font-family: "Champagne";
+    color: #888888;
+    font-size: 20px; }
+  .addEventContainer .placeholder {
+    width: 50px;
+    height: 50px;
+    flex-direction: row; }
+  .addEventContainer .searchBar {
+    width: 500px;
+    margin: 0 auto;
+    display: flex; }
+  .addEventContainer .searchRounded {
+    border: 2px solid red;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-left: none;
+    padding: 6px 15px 6px 30px;
+    flex-direction: column;
+    margin: 10px; }
+  .addEventContainer .searchLogo {
+    flex-direction: column;
+    width: 28px;
+    height: 26px;
+    margin: 10px;
+    border-radius: 15px; }
+  .addEventContainer .event__clock {
+    width: 100%;
+    text-align: center; }
+    .addEventContainer .event__clock span {
+      display: inline-block; }
+  .addEventContainer .react-timekeeper__hour-select {
+    color: white; }
+  .addEventContainer .react-timekeeper__minute-select {
+    color: #c7c2c2; }
 
 .noEventss {
   width: 90%;

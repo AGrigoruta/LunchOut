@@ -8,7 +8,6 @@ import registerServiceWorker from './registerServiceWorker';
 import newEvent from "./components/newEvent";
 import timeSet from "./components/events/timeset";
 
-
 class Home extends React.Component{
     render(){
         return(

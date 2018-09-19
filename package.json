@@ -20,6 +20,7 @@
   "author": "Oancea Ionut Eugen <oanceaionut15@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "cookie-session": "^2.0.0-beta.3",
@@ -36,6 +37,7 @@
     "react-router": "^3.2.1",
     "react-scripts": "^1.1.5",
     "react-timekeeper": "^1.0.9",
+    "request": "^2.88.0",
     "sass": "^1.13.2"
   },
   "devDependencies": {

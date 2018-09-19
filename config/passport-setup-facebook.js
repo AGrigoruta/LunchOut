@@ -2,7 +2,8 @@ const passport = require('passport')
     , keys = require('./keys')
     , User = require('../models/user-model')
     , FacebookStrategy = require('passport-facebook').Strategy
-    , event = require('../models/event-model');
+    , event = require('../models/event-model')
+    , request = require('request');
 
 passport.use(new FacebookStrategy({
     callbackURL: 'https://localhost:8080/auth/facebook/callback',
@@ -31,16 +32,21 @@ passport.use(new FacebookStrategy({
                 done(null, currentUser);// serialize the user after done
             } else {
                 //if not create user in db
-                new User({
-                    username: profile.name.familyName + " " + profile.name.givenName,
-                    authId: profile.id,
-                    email: profile.emails[0].value,
-                    thumbnail: "graph.facebook.com/"+ profile.id + "/picture" + "?width=200&height=200" + "&access_token=" + accessToken,
-                    loggedWith: "Facebook"
-                }).save().then((newUser) => {
-                    console.log("new user created:" + newUser);
-                    done(null, newUser); // serialize the user after done
-                });
+                var imageUrl = "https://graph.facebook.com/"+ profile.id + "/picture" + "?width=200&height=200&redirect=false" + "&access_token=" + accessToken;
+                request(imageUrl, { json: true }, (err, res, body) => {
+                    if (err) { return console.log(err); }
+                    new User({
+                        username: profile.name.familyName + " " + profile.name.givenName,
+                        authId: profile.id,
+                        email: profile.emails[0].value,
+                        thumbnail: body.data.url ,
+                        loggedWith: "Facebook"
+                    }).save().then((newUser) => {
+                        console.log("new user created:" + newUser);
+                        done(null, newUser); // serialize the user after done
+                    });
+                  });
+               
 
                 // new event({
                 // participantsID: ["Hello Ma Friend"],
