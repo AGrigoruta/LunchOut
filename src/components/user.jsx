@@ -49,9 +49,9 @@ export default class User extends React.Component{
         
         // let photosBackup = []
         this.state.contacts.forEach((element, i) => {
+                let imagesBackup = Object.assign([], element.photo);
             for(var index=0;index<element.participantsID.length;index++ ){
                 
-                let imagesBackup = Object.assign([], element.photo);
                 fetch('https://localhost:8080/api/user/'+element.participantsID[index])
                 .then(res => res.json())
                 .then(pars => {
@@ -67,7 +67,7 @@ export default class User extends React.Component{
                     this.setState(stateBackup)
                     // console.log(stateBackup);
                  } )
-                
+                console.log(this.state)
             }
             
         })}
