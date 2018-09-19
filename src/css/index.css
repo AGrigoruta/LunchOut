@@ -519,7 +519,7 @@ body {
   border-left: none; }
 
 .input-field:focus {
-  border: 1px solid #949494;
+  border: 2px solid #949494;
   border-left: 0px; }
 
 .icon:focus {
