@@ -95,7 +95,7 @@ export default class User extends React.Component{
                 toggleArrow={ this.state.toggleArrow }
                 callbackFromParent={this.callbackHandleArrow}
                 />
-                <Footer toggleArrow={ !this.state.toggleArrow } />
+                <Footer toggleArrow={ this.state.toggleArrow } />
             </div>
 
 
