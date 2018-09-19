@@ -524,10 +524,60 @@ body {
   border-left: 0px; }
 
 .addEventContainer {
+  height: calc(100vh - 120px);
+  overflow: auto;
   height: 100%;
   width: 94%;
   margin: auto;
   box-shadow: 0px 0px 10px #949494; }
+
+.RestaurantsContainer {
+  width: 100%; }
+
+.RestaurantsList {
+  list-style-type: none;
+  margin: auto;
+  display: flex;
+  margin-bottom: 15px;
+  border-bottom: 1px solid grey;
+  width: 90%; }
+
+.RestaurantStyle {
+  font-family: "Champagne";
+  color: #ED1E79;
+  font-size: 30px;
+  font-weight: bold; }
+
+.LocationStyle {
+  font-family: "Champagne";
+  color: #888888;
+  font-size: 20px; }
+
+.placeholder {
+  width: 50px;
+  height: 50px;
+  flex-direction: row; }
+
+.searchBar {
+  width: 500px;
+  margin: 0 auto;
+  display: flex; }
+
+.searchRounded {
+  border: 2px solid red;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-left: none;
+  padding: 6px 15px 6px 30px;
+  flex-direction: column;
+  margin: 10px; }
+
+.searchLogo {
+  flex-direction: column;
+  width: 28px;
+  height: 26px;
+  margin: 10px;
+  border-radius: 15px; }
 
 .noEventss {
   width: 90%;
@@ -538,20 +588,11 @@ body {
 .noEventsLogo {
   width: 263px;
   height: 271px;
-<<<<<<< HEAD
-  text-align: center;
-  display: block; }
-=======
   text-align: center; }
->>>>>>> c0f69fd7f6bacc28b5612103aa7c487a3a52cfbd
 
 .noEventsText {
   font-family: "Champagne";
   color: #ED1E79;
   font-size: 30px;
-<<<<<<< HEAD
-  display: block; }
-=======
   display: block;
   text-align: center; }
->>>>>>> c0f69fd7f6bacc28b5612103aa7c487a3a52cfbd

@@ -9,7 +9,6 @@ import Add from './components/add/add.js';
 import newEvent from "./components/newEvent";
 
 
-
 class Home extends React.Component{
     render(){
         return(
@@ -17,7 +16,6 @@ class Home extends React.Component{
                 <div className="main__div">
                     <Route path="/" component={App} exact />
                     <Route path="/user" component={User}/>
-                    <Route path="/add" component={Add}/>
                     <Route path="/add" component={newEvent}/>
                 </div>
             </BrowserRouter>
