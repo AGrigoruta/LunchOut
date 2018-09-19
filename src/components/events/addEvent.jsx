@@ -32,25 +32,38 @@ export default class addEvent extends React.Component{
             this.setState({
                 latlong: response.coords.latitude+","+response.coords.longitude
             },()=>{
-                this.getVenues("restaurants")
+                this.getVenues("")
             });
         });
     };
     
-    getVenues=(food)=>{
+    getVenues=(query)=>{
         const endPoint="https://api.foursquare.com/v2/venues/explore?";
         const params={
             client_id:"EFSQIR4NPI5MRIF0DMGMF14COGKRFR4FWD3EXKXFTVP0TAKY",
             client_secret:"XP0E2U5XYMZP0JQWKF0GMRWL0M04O4Z5EEIJAA5XE1JCBBRL",
             ll:this.state.latlong,
-            query:food,
+            query:query,
             limit:100,
             v:"20181709"
     
         };
-        axios.get(endPoint+ new URLSearchParams(params)).then(response=>{
-            console.log(response);
-            this.setState({venues:response.data.response.groups[0].items})
+        axios.get(endPoint+ new URLSearchParams(params)).then(res=>{
+           
+            let restaurant = Object.assign([],);
+            let stateBackup = Object.assign([],this.state);
+            res.data.response.groups[0].items.map(element =>{
+                console.log(element.venue.categories[0].id);
+                if(element.venue.categories[0].id.includes("4bf58dd8d48988d1")){
+
+
+                   // console.log(element.venue.categories[0].id );
+                    restaurant.push(element);
+                }
+            })
+            console.log(restaurant);
+            stateBackup.venues = restaurant;
+            this.setState(stateBackup);
             
         });
 
