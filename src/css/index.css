@@ -1,0 +1,690 @@
+@font-face {
+  font-family: 'Champagne';
+  src: url("../view/fonts/Champagne.ttf") format("truetype"); }
+
+.main__div {
+  height: 100%; }
+
+#root {
+  height: 100%; }
+
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  margin: 0px; }
+
+a {
+  width: 100%; }
+
+.App {
+  height: 100%;
+  background-image: url("../view/images/Background.png");
+  text-align: center; }
+  .App .App__header__logo {
+    width: 30%;
+    display: block;
+    margin-top: 70px;
+    display: inline-block;
+    padding-bottom: 0px; }
+
+.App__header {
+  width: 100%;
+  height: 150px;
+  padding: 20px;
+  color: white;
+  position: fixed; }
+
+.header__title {
+  height: 40px;
+  width: 100%;
+  font-family: 'Champagne';
+  font-size: 30px;
+  margin-top: 0px;
+  text-align: center;
+  color: #fff;
+  padding: 10px 0px 10px 0px; }
+
+.header {
+  background-color: #0071bc;
+  text-align: center;
+  margin: 0px; }
+  .header p {
+    margin: 0px; }
+
+.main__card__component {
+  height: calc(100vh - 120px);
+  overflow: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  box-sizing: border-box; }
+
+@media (max-width: 640px) {
+  .App {
+    text-align: center; }
+    .App .App__header__logo {
+      width: 80%;
+      margin-top: 70px;
+      display: inline-block; }
+  .container {
+    margin-top: 80%;
+    display: inline-block;
+    width: 80%; }
+  .raw {
+    width: 100%;
+    display: flex;
+    float: left; }
+  .main {
+    padding: 0px 10px 10px 0px;
+    width: 100%;
+    display: flex; }
+    .main .main__log {
+      padding: 0px 0px 0px 0px;
+      text-align: center;
+      margin: auto;
+      width: 100%;
+      display: flex;
+      font-size: 16px;
+      font-weight: bold;
+      font-family: 'Arial';
+      border-radius: 40px;
+      color: #fff; }
+  .main__logo__icon {
+    padding: 15px 10px 10px 20px;
+    height: 20px;
+    margin-left: 1em; } }
+
+@media (min-width: 641px) and (max-width: 1070px) {
+  .App {
+    text-align: center; }
+    .App .App__header__logo {
+      width: 80%;
+      margin-top: 70px;
+      display: inline-block; }
+  .container {
+    margin-top: 70%;
+    display: inline-block;
+    width: 80%; }
+  .raw {
+    width: 100%;
+    display: flex;
+    float: left;
+    margin-top: 20px; }
+  .main {
+    padding: 0px 10px 10px 0px;
+    width: 100%;
+    display: flex;
+    margin: auto;
+    text-align: center; }
+    .main .main__log {
+      padding: 10px 0px 10px 0px;
+      text-align: center;
+      margin: auto;
+      width: 100%;
+      display: flex;
+      font-size: 30px;
+      font-weight: bold;
+      font-family: 'Arial';
+      border-radius: 40px;
+      color: #fff; }
+  .main__logo__icon {
+    padding: 25px 10px 10px 20px;
+    height: 40px;
+    margin-left: 20%; } }
+
+.main__logo__icon {
+  padding: 15px 10px 10px 20px;
+  height: 30px;
+  margin-left: 25%; }
+
+.container {
+  margin-top: 19%;
+  display: inline-block;
+  width: 80%; }
+
+.raw {
+  width: 60%;
+  margin: auto; }
+
+.main {
+  padding: 10px 10px 10px 10px;
+  width: 100%; }
+  .main > a.main__link {
+    width: 100%;
+    text-decoration: none; }
+  .main .main__log {
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    margin: auto;
+    width: 70%;
+    display: flex;
+    font-size: 19px;
+    font-weight: bold;
+    font-family: 'Arial';
+    border-radius: 40px;
+    color: #fff; }
+    .main .main__log:hover {
+      box-shadow: 0px 0px 10px #000000; }
+    .main .main__log.google {
+      background-color: #ED1E79; }
+    .main .main__log.facebook {
+      background-color: #0071BC; }
+
+@media (max-width: 640px) {
+  .App {
+    text-align: center; }
+    .App .App__header__logo {
+      width: 80%;
+      margin-top: 70px;
+      display: inline-block; }
+  .container {
+    margin-top: 80%;
+    display: inline-block;
+    width: 80%; }
+  .raw {
+    width: 100%;
+    display: flex;
+    float: left; }
+  .main {
+    padding: 0px 10px 10px 0px;
+    width: 100%;
+    display: flex; }
+    .main .main__log {
+      padding: 0px 0px 0px 0px;
+      text-align: center;
+      margin: auto;
+      width: 100%;
+      display: flex;
+      font-size: 16px;
+      font-weight: bold;
+      font-family: 'Arial';
+      border-radius: 40px;
+      color: #fff; }
+  .main__logo__icon {
+    padding: 15px 10px 10px 20px;
+    height: 20px;
+    margin-left: 1em; } }
+
+@media (min-width: 641px) and (max-width: 1070px) {
+  .App {
+    text-align: center; }
+    .App .App__header__logo {
+      width: 80%;
+      margin-top: 70px;
+      display: inline-block; }
+  .container {
+    margin-top: 70%;
+    display: inline-block;
+    width: 80%; }
+  .raw {
+    width: 100%;
+    display: flex;
+    float: left;
+    margin-top: 20px; }
+  .main {
+    padding: 0px 10px 10px 0px;
+    width: 100%;
+    display: flex;
+    margin: auto;
+    text-align: center; }
+    .main .main__log {
+      padding: 10px 0px 10px 0px;
+      text-align: center;
+      margin: auto;
+      width: 100%;
+      display: flex;
+      font-size: 30px;
+      font-weight: bold;
+      font-family: 'Arial';
+      border-radius: 40px;
+      color: #fff; }
+  .main__logo__icon {
+    padding: 25px 10px 10px 20px;
+    height: 40px;
+    margin-left: 20%; } }
+
+.footer {
+  z-index: 0;
+  text-align: center;
+  background-color: #0071BC;
+  color: white;
+  font-size: 20px;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%; }
+
+.footer__icon__homeic {
+  width: 19%;
+  display: inline; }
+  .footer__icon__homeic :hover {
+    box-shadow: 0px 3px 0px #f8f8f8; }
+  .footer__icon__homeic img {
+    width: 41px;
+    height: 41px;
+    padding: 7px;
+    padding: 7px 12px 7px 12px; }
+
+.footer__icon__searchic {
+  width: 19%;
+  display: inline; }
+  .footer__icon__searchic :hover {
+    box-shadow: 0px 3px 0px #f8f8f8; }
+  .footer__icon__searchic img {
+    width: 39px;
+    height: 39px;
+    padding: 7px;
+    padding: 7px 12px 7px 12px; }
+
+.footer__icon__addic {
+  width: 19%;
+  display: inline; }
+  .footer__icon__addic :hover {
+    box-shadow: 0px 3px 0px #f8f8f8; }
+  .footer__icon__addic img {
+    width: 34px;
+    height: 39px;
+    padding: 7px 12px 7px 12px; }
+
+.footer__icon__bellic {
+  width: 19%;
+  display: inline; }
+  .footer__icon__bellic :hover {
+    box-shadow: 0px 3px 0px #f8f8f8; }
+  .footer__icon__bellic img {
+    width: 42px;
+    height: 42px;
+    padding: 7px;
+    padding: 7px 12px 7px 12px; }
+
+.footer__icon__profileic {
+  width: 19%;
+  display: inline; }
+  .footer__icon__profileic :hover {
+    box-shadow: 0px 3px 0px #f8f8f8; }
+  .footer__icon__profileic img {
+    width: 38px;
+    height: 38px;
+    padding: 7px;
+    padding: 7px 12px 7px 12px; }
+
+body {
+  margin: 0 auto; }
+
+.popUp {
+  font-family: 'Arial';
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
+  animation: pop-up 1s;
+  animation-timing-function: ease-out;
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+  margin-bottom: 10px; }
+  .popUp .popUp__row {
+    position: fixed; }
+  .popUp .object {
+    margin: 0 auto; }
+    .popUp .object .container {
+      margin: 0 auto;
+      margin-top: 10px;
+      width: 80%;
+      height: 46.36px;
+      background-color: #0071BC;
+      border-radius: 40px;
+      color: white;
+      display: flex;
+      align-items: center;
+      box-shadow: 0px 0px 10px gray; }
+      .popUp .object .container .menuItems {
+        margin: 0 auto; }
+    .popUp .object .container:hover {
+      margin: 0 auto;
+      margin-top: 10px;
+      width: 80%;
+      height: 46.36px;
+      background-color: #0071BC;
+      border-radius: 40px;
+      color: white;
+      display: flex;
+      align-items: center;
+      box-shadow: 0px 0px 10px black; }
+      .popUp .object .container:hover .menuItems {
+        margin: 0 auto; }
+  .popUp .cancel-button {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 80%;
+    height: 46.36px;
+    background-color: #0071BC;
+    border-radius: 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 10px gray; }
+    .popUp .cancel-button .cancel {
+      margin: 0 auto; }
+  .popUp .cancel-button:hover {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 80%;
+    height: 46.36px;
+    background-color: #0071BC;
+    border-radius: 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 10px black; }
+    .popUp .cancel-button:hover .cancel {
+      margin: 0 auto; }
+
+@keyframes pop-up {
+  0% {
+    left: -100%; }
+  100% {
+    left: 0%; } }
+
+.Card {
+  background-color: white;
+  width: 90%;
+  height: 17vw;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  border-radius: 6vw;
+  box-shadow: 0px 0px 10px gray; }
+  .Card .text {
+    font-family: "Champagne";
+    width: 90%;
+    color: #ED1E79;
+    font-size: 5vw;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin-top: 1vw; }
+    .Card .text .location {
+      user-select: none;
+      order: 1;
+      margin-left: 7%;
+      margin-bottom: 0;
+      margin-top: 0;
+      text-overflow: ellipsis;
+      width: 70%;
+      overflow: hidden;
+      white-space: nowrap; }
+    .Card .text .time {
+      user-select: none;
+      order: 2;
+      margin-right: 5%;
+      margin-bottom: 0;
+      margin-top: 0; }
+  .Card .CardRow {
+    display: flex; }
+    .Card .CardRow .text {
+      order: 1; }
+    .Card .CardRow .arrow-down {
+      margin-right: 5%;
+      margin-top: 3vw;
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 1.5vw solid #ED1E79;
+      border-right: 1.5vw solid transparent;
+      border-bottom: 1.5vw solid transparent;
+      border-left: 1.5vw solid transparent;
+      order: 2; }
+    .Card .CardRow .arrow-down:hover {
+      margin-right: 5%;
+      margin-top: 3vw;
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 1.5vw solid pink;
+      border-right: 1.5vw solid transparent;
+      border-bottom: 1.5vw solid transparent;
+      border-left: 1.5vw solid transparent;
+      order: 2; }
+
+.Card .images {
+  margin-right: 14%; }
+  .Card .images img {
+    width: 7vw;
+    margin-top: 2vw;
+    margin-right: 1%;
+    float: right;
+    float: bottom; }
+
+.Card:hover {
+  box-shadow: 0px 0px 10px black; }
+
+.popUpp {
+  height: 10000000px; }
+
+.CartMenu {
+  height: 70%;
+  display: flex;
+  align-items: flex-end;
+  z-index: 1; }
+
+.events__div {
+  height: 100%;
+  position: relative; }
+
+.event__container {
+  height: 77%;
+  width: 92%;
+  margin: auto;
+  box-shadow: 0px 0px 10px #949494; }
+
+.arrowOpacity {
+  opacity: 0.2; }
+
+.main__card__component {
+  height: calc(100vh - 120px);
+  overflow: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  box-sizing: border-box; }
+
+.input-container {
+  padding-top: 20px;
+  display: -ms-flexbox;
+  /* IE10 */
+  display: flex;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 15px; }
+
+.icon {
+  width: 30px;
+  height: 35px;
+  padding: 7px;
+  background: white;
+  color: #c4c4c4;
+  min-width: 50px;
+  text-align: center;
+  border: 2px solid #949494;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-right: none; }
+
+.input-field {
+  border: 2px solid #949494;
+  width: 100%;
+  padding: 7px;
+  outline: none;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-left: none; }
+
+.input-field:focus {
+  border: 1px solid #949494;
+  border-left: 0px; }
+
+.icon:focus {
+  border: 1px solid #949494;
+  border-left: 0px; }
+
+.addEventContainer {
+  height: calc(100vh - 120px);
+  overflow: auto;
+  height: 100%;
+  width: 94%;
+  margin: auto;
+  box-shadow: 0px 0px 10px #949494; }
+
+.RestaurantsContainer {
+  width: 100%; }
+
+.RestaurantsList {
+  list-style-type: none;
+  margin: auto;
+  display: flex;
+  margin-bottom: 15px;
+  border-bottom: 1px solid grey;
+  width: 90%; }
+
+.RestaurantStyle {
+  font-family: "Champagne";
+  color: #ED1E79;
+  font-size: 30px;
+  font-weight: bold; }
+
+.LocationStyle {
+  font-family: "Champagne";
+  color: #888888;
+  font-size: 20px; }
+
+.placeholder {
+  width: 50px;
+  height: 50px;
+  flex-direction: row; }
+
+.searchBar {
+  width: 500px;
+  margin: 0 auto;
+  display: flex; }
+
+.searchRounded {
+  border: 2px solid red;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-left: none;
+  padding: 6px 15px 6px 30px;
+  flex-direction: column;
+  margin: 10px; }
+
+.searchLogo {
+  flex-direction: column;
+  width: 28px;
+  height: 26px;
+  margin: 10px;
+  border-radius: 15px; }
+
+.event__clock {
+  width: 100%;
+  text-align: center; }
+  .event__clock span {
+    display: inline-block; }
+
+.react-timekeeper__hour-select {
+  color: white; }
+
+.react-timekeeper__minute-select {
+  color: #c7c2c2; }
+
+.noEventss {
+  width: 90%;
+  display: block;
+  margin: auto;
+  text-align: center; }
+
+.noEventsLogo {
+  width: 263px;
+  height: 271px;
+  text-align: center; }
+
+.noEventsText {
+  font-family: "Champagne";
+  color: #ED1E79;
+  font-size: 30px;
+  display: block;
+  text-align: center; }
+
+.DeleteEvent {
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  position: absolute; }
+  .DeleteEvent .DeleteEventContainer {
+    width: 354px;
+    height: 306px;
+    background-color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    .DeleteEvent .DeleteEventContainer .DeleteLogo {
+      margin-left: auto;
+      margin-right: auto;
+      width: 96px;
+      order: 1; }
+    .DeleteEvent .DeleteEventContainer .DeleteEventText {
+      margin-left: auto;
+      margin-right: auto;
+      overflow: hidden;
+      max-width: 300px;
+      font: bold 1em Arial;
+      text-align: center;
+      font-size: 22px;
+      color: #ED1E79;
+      order: 2; }
+    .DeleteEvent .DeleteEventContainer .buttons {
+      order: 3;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      color: white;
+      font: bold 1em Arial; }
+      .DeleteEvent .DeleteEventContainer .buttons .button-background {
+        margin: 0 auto;
+        margin-top: 10px;
+        width: 134.5px;
+        height: 46.36px;
+        background-color: #0071BC;
+        border-radius: 40px;
+        color: white;
+        display: flex;
+        align-items: center;
+        box-shadow: 0px 0px 10px gray; }
+        .DeleteEvent .DeleteEventContainer .buttons .button-background .Yes {
+          text-align: center;
+          margin: 0 auto; }
+        .DeleteEvent .DeleteEventContainer .buttons .button-background .No {
+          text-align: center;
+          margin: 0 auto; }
+      .DeleteEvent .DeleteEventContainer .buttons .button-background:hover {
+        margin: 0 auto;
+        margin-top: 10px;
+        width: 134.5px;
+        height: 46.36px;
+        background-color: #0071BC;
+        border-radius: 40px;
+        color: white;
+        display: flex;
+        align-items: center;
+        box-shadow: 0px 0px 10px black; }
+        .DeleteEvent .DeleteEventContainer .buttons .button-background:hover .Yes {
+          text-align: center;
+          margin: 0 auto; }
+        .DeleteEvent .DeleteEventContainer .buttons .button-background:hover .No {
+          text-align: center;
+          margin: 0 auto; }

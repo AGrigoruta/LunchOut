@@ -1,0 +1,127 @@
+$yonder-pink:#ED1E79;
+$yonder-blue: #0071BC;
+
+@mixin box_shadow ($level) {
+
+    @if $level==1 {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+
+    @else if $level==2 {
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    }
+
+    @else if $level==3 {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+
+    @else if $level==4 {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+
+    @else if $level==5 {
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+    }
+
+}
+
+@mixin push--auto {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+    
+}
+
+.DeleteEvent {
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    position: absolute;
+    .DeleteEventContainer {
+        width: 354px;
+        height: 306px;
+        background-color: white;
+        @include box_shadow(2);
+        @include push--auto();
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .DeleteLogo {
+            //display: flex;
+            @include push--auto();
+            width: 96px;
+            order: 1;
+        }
+
+        .DeleteEventText {
+            @include push--auto();
+            overflow: hidden;
+            max-width: 300px;
+            //font-family: 'Arial';
+            font: bold 1em Arial;
+            text-align: center;
+            font-size: 22px;
+            color: $yonder-pink;
+            order: 2;
+        }
+
+        .buttons {
+            order: 3;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            color: white;
+            font: bold 1em Arial;
+            .button-background{
+                margin: 0 auto;
+                margin-top: 10px;
+                width: 134.5px;
+                height: 46.36px;
+                background-color: $yonder-blue;
+                border-radius: 40px;
+                color: white;
+                display: flex;
+                align-items: center;
+                box-shadow: 0px 0px 10px gray;
+                .Yes{
+                    text-align: center;
+                    margin: 0 auto;
+                    //align-items: center;
+                }
+                .No{
+                    text-align: center;
+                    margin: 0 auto;
+                    //align-items: center;
+                }
+            }
+            .button-background:hover{
+                margin: 0 auto;
+                margin-top: 10px;
+                width: 134.5px;
+                height: 46.36px;
+                background-color: $yonder-blue;
+                border-radius: 40px;
+                color: white;
+                display: flex;
+                align-items: center;
+                box-shadow: 0px 0px 10px black;
+                .Yes{
+                    text-align: center;
+                    margin: 0 auto;
+                    //align-items: center;
+                }
+                .No{
+                    text-align: center;
+                    margin: 0 auto;
+                    //align-items: center;
+                }
+            }
+        }
+    }
+}
