@@ -77,8 +77,13 @@ export default class addEvent extends React.Component{
                      handleVisibility = {this.handleTimer}
                     divdisplay={this.state.clickTimerButton}
                  />
+                <div className="addEventContainer__search">
+                   <form>
+                       <input type="text" name="search" placeholder="" />
+                   </form>
                 </div>
                {/* <button onClick={this.handleTimer }>Click here</button> */}
+            </div>
             </div>
         );
     }

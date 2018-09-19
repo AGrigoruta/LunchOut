@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var event = require('../models/event-model.js');
+var user = require('../models/user-model.js');
 
 router.route('/event')
 
@@ -59,4 +60,17 @@ router.route('/event/:id')
             })
             .catch(err => next(err));
         })
+
+router.route('/user/:id')
+
+        .get(function(req,res){
+            user.findOne({authId : req.params.id}, function (err,users){
+                if(err){
+                    return res.send(err);
+                }
+                res.json(users);
+            });
+        })
+
 module.exports = router;
+

@@ -89,7 +89,9 @@ $image-margin-top: 0%;
 .Card {
     .images {
         margin-right: 14%;
+        display: block;
         img {
+            border-radius: 50%;
             width: 47px;
             height: 47px;
             margin-top: $image-margin-top;

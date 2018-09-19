@@ -442,8 +442,10 @@ body {
       order: 2; }
 
 .Card .images {
-  margin-right: 14%; }
+  margin-right: 14%;
+  display: block; }
   .Card .images img {
+    border-radius: 50%;
     width: 47px;
     height: 47px;
     margin-top: 0%;
