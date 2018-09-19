@@ -71,10 +71,12 @@ export default class addEvent extends React.Component{
     render(){
         return(
             <div className="addEventContainer">
+                <div className="addEventContainer__search">
+
             <Search getVenues={this.getVenues}></Search>
                 <div className="RestaurantsContainer">{this.state.venues.map(venue=>{
                 return (
-                <div className="RestaurantsList">  
+                <div onClick={this.handleTimer }  className="RestaurantsList">  
                     <img className="placeholder" src={placeholder}/>   
                     <div className="TextStyle">
                     <div className="RestaurantStyle" key={venue.venue.name}>
@@ -90,9 +92,13 @@ export default class addEvent extends React.Component{
                      handleVisibility = {this.handleTimer}
                     divdisplay={this.state.clickTimerButton}
                  />
+
+               
                 </div>
-               <button onClick={this.handleTimer }>Click here</button>
+               {/* <button onClick={this.handleTimer }>Click here</button> */}
             </div>
+            </div>
+            
         );
     }
 }
