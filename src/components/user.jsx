@@ -80,7 +80,7 @@ export default class User extends React.Component{
         const {isLoading,contacts} = this.state;
         return(
             <div className = "events__div"> 
-                <Header name="Dashboard" />
+                <Header name="Opened Events" />
                 <div className="main__card__component">
                 {
                      isLoading && contacts.length > 0 ? contacts.map(contact =>{
