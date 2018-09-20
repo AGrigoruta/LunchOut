@@ -6,8 +6,9 @@ var user = require('../models/user-model.js');
 router.route('/event')
 
 .get(function(req,res){
-  
+    console.log("Doin Get");
     event.find(function (err, events){
+        console.log("Stuff ongoing");
         if(err){
             return res.send(err);
         }
@@ -16,6 +17,7 @@ router.route('/event')
 })
       
 .post(function(req,res){
+    console.log("Doin Post");
             var events = new event(req.body);
             console.log(events);
             
@@ -33,6 +35,7 @@ router.route('/event')
 router.route('/event/:id')
 
         .get(function(req,res){
+            console.log("Doin Get x2");
             event.findOne({_id : req.params.id}, function (err,events){
                 if(err){
                     return res.send(err);
@@ -42,6 +45,7 @@ router.route('/event/:id')
         })
 
         .delete(function(req,res){
+            console.log("Doin Delete x2");
             event.remove({_id: req.params.id}, function(err,events){
                 if(err){
                     return res.send(err);
@@ -51,6 +55,7 @@ router.route('/event/:id')
         })
 
         .put(function(req,res){
+            console.log("Doin Put x2");
             var conditions = {_id : req.params.id};
 
             event.update(conditions, req.body)
@@ -64,6 +69,7 @@ router.route('/event/:id')
 router.route('/user/:id')
 
         .get(function(req,res){
+            console.log("Doin Get x3");
             user.findOne({authId : req.params.id}, function (err,users){
                 if(err){
                     return res.send(err);

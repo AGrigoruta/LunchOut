@@ -4,6 +4,7 @@ import Footer from "./header/footer.js";
 import Card from "./events/card.jsx";
 import ContMenu from "./events/contextualmenu.jsx";
 import NoEvents from "./events/noEvents.jsx"
+import DeleteEvent from "./events/deleteEvent.jsx"
 import '../css/index.css'; 
 export default class User extends React.Component{
 
@@ -11,16 +12,25 @@ export default class User extends React.Component{
         super(props);
         this.state = {
             toggleArrow:false,
+            toggleDelete: false,
             isLoading: true,
             contacts: []
         }
         this.callbackHandleArrow = this.callbackHandleArrow.bind(this);
+        this.callbackHandleDelete = this.callbackHandleDelete.bind(this);
     }
 
     callbackHandleArrow(dataFromChildren){
         this.setState({
             toggleArrow: !this.state.toggleArrow
         })
+    }
+    callbackHandleDelete(dataFromChildren) {
+        this.setState({
+            //toggleArrow: !this.state.toggleArrow,
+            toggleDelete: !this.state.toggleDelete
+        })
+        console.log("Delete o.o");
     }
     componentDidMount(){
         this.fetchData();
@@ -90,10 +100,17 @@ export default class User extends React.Component{
                          
                      }) : <NoEvents />
                 }
+                <DeleteEvent
+                    toggleDelete={this.state.toggleDelete}
+                    callbackFromParentDelete={this.callbackHandleDelete}
+                />
                 </div>
-                <ContMenu 
-                toggleArrow={ this.state.toggleArrow }
-                callbackFromParent={this.callbackHandleArrow}
+                <ContMenu
+                    toggleArrow={this.state.toggleArrow}
+                    callbackFromParent={this.callbackHandleArrow}
+                    toggleDelete={this.state.toggleDelete}
+                    callbackFromParentDelete={this.callbackHandleDelete}
+                    
                 />
                 <Footer toggleArrow={ this.state.toggleArrow } />
             </div>
