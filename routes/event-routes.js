@@ -17,6 +17,7 @@ router.route('/event')
       
 .post(function(req,res){
             var events = new event(req.body);
+            
             console.log(events);
             
             events.save(function(err, events){
