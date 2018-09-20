@@ -20,10 +20,27 @@ export default class addEvent extends React.Component{
         this.handleTimer = this.handleTimer.bind(this);
     }
     handleTimer(){
-        this.setState({
-            clickTimerButton: ! this.state.clickTimerButton
+        // this.setState({
+        //     clickTimerButton: ! this.state.clickTimerButton
             
-            })
+        //     })
+        let mock = {
+            "participantsID": [
+                "110566035232069939733"
+            ],
+            "_id": "5ba3ade893273b0c905a35a2",
+            "creatorID": "String",
+            "schemaId": "String",
+            "location": "Tumuruc's Home",
+            "startTime": "20:00",
+            "participantsNr": 4,
+            "date": "String",
+            "status": "String",
+            "__v": 0
+        }
+        axios.post('/api/event', mock).then((resp) => {
+            console.log(resp);
+        })
     }
     componentDidMount(){
         this.getLocation();

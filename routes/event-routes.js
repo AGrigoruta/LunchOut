@@ -17,7 +17,7 @@ router.route('/event')
       
 .post(function(req,res){
             var events = new event(req.body);
-            console.log(events);
+            console.log(req.user);
             
             events.save(function(err, events){
     
@@ -33,7 +33,7 @@ router.route('/event')
 router.route('/event/:id')
 
         .get(function(req,res){
-            event.findOne({_id : req.params.id}, function (err,events){
+            event.findById(req.params.id, function (err,events){
                 if(err){
                     return res.send(err);
                 }
@@ -64,7 +64,7 @@ router.route('/event/:id')
 router.route('/user/:id')
 
         .get(function(req,res){
-            user.findOne({authId : req.params.id}, function (err,users){
+            user.find({authId : req.params.id}, function (err,users){
                 if(err){
                     return res.send(err);
                 }
