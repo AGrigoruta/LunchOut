@@ -132,10 +132,23 @@ $mainColor: #949494;
 //event timer style
 .event__clock{
     width: 100%;
-    text-align: center;
+  
+    
     span{
         display: inline-block;
     }
+}
+.main__timer__container{
+    display: flex;
+   position: fixed;
+    width: 100%;
+    align-items: center;
+    /* text-align: center; */
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    justify-content: center;
 }
 .react-timekeeper__hour-select{
     color: white;

@@ -7,6 +7,7 @@ import searchEvent from "../../view/images/searchicon.png";
 import "../../sass/main/events/user.scss";
 import Timeset from "./timeset.jsx";
 
+
 export default class addEvent extends React.Component{
     constructor(props){
         super(props);
@@ -14,7 +15,7 @@ export default class addEvent extends React.Component{
         this.state={
             latlong: "",
             venues:[],
-            clickTimerButton: true
+            clickTimerButton: false
         };
         this.handleTimer = this.handleTimer.bind(this);
     }
@@ -58,10 +59,16 @@ export default class addEvent extends React.Component{
     render(){
         return(
             <div className="addEventContainer">
+            { this.state.clickTimerButton ? (
+            <div className="main__timer__container">
+                <Timeset
+                     handleVisibility = {this.handleTimer}
+                    divdisplay={this.state.clickTimerButton}
+            /></div> ) : ""}
             <Search getVenues={this.getVenues}></Search>
                 <div className="RestaurantsContainer">{this.state.venues.map(venue=>{
                 return (
-                <div onClick={this.handleTimer }  className="RestaurantsList">  
+                <div onClick={this.handleTimer}  className="RestaurantsList">  
                     <img className="placeholder" src={placeholder}/>   
                     <div className="TextStyle">
                     <div className="RestaurantStyle" key={venue.venue.name}>
@@ -72,16 +79,11 @@ export default class addEvent extends React.Component{
             })}
             </div> 
                 <div className="event__clock">
+               
                 
-                <Timeset
-                     handleVisibility = {this.handleTimer}
-                    divdisplay={this.state.clickTimerButton}
-                 />
-                <div className="addEventContainer__search">
-                   
-                </div>
                {/* <button onClick={this.handleTimer }>Click here</button> */}
             </div>
+           
             </div>
         );
     }

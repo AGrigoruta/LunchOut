@@ -573,10 +573,20 @@ body {
     margin: 10px;
     border-radius: 15px; }
   .addEventContainer .event__clock {
-    width: 100%;
-    text-align: center; }
+    width: 100%; }
     .addEventContainer .event__clock span {
       display: inline-block; }
+  .addEventContainer .main__timer__container {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    align-items: center;
+    /* text-align: center; */
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    justify-content: center; }
   .addEventContainer .react-timekeeper__hour-select {
     color: white; }
   .addEventContainer .react-timekeeper__minute-select {
