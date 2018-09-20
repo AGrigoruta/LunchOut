@@ -20,9 +20,7 @@ router.route('/event')
     console.log("Doin Post");
             var events = new event(req.body);
             console.log(events);
-            
             events.save(function(err, events){
-    
                 if(err){
                     return res.send(err);
                 }

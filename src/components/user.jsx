@@ -49,7 +49,6 @@ export default class User extends React.Component{
                 startTime : `${user.startTime}`,
                 participantsID : user.participantsID,
                 photo: []
-                
             };
         }))
         .then(contacts => this.setState({
@@ -65,9 +64,6 @@ export default class User extends React.Component{
                 fetch('https://localhost:8080/api/user/'+element.participantsID[index])
                 .then(res => res.json())
                 .then(pars => {
-                    
-                    
-                    
                     let stateBackup = Object.assign({}, this.state);
                     
                     imagesBackup.push(pars.thumbnail);
