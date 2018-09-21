@@ -1,34 +1,6 @@
-$pink: #ED1E79;
 $text-margin : 7%;
 $text-top-margin: 0px;
 $image-margin-top: 0%;
-
-@mixin arrow($direction, $size, $color) {
-    content: ""; // ensures the arrows are visible
-
-    // ensures the size of the arrows is correct:
-    width: 0;
-    height: 0;
-
-    // Lists for positions/directions
-    $directions: ('down', 'left', 'up', 'right');
-    $positions: ('top', 'right', 'bottom', 'left');
-
-    // Loop through each position
-    @each $position in $positions {
-        // Calculate the index of the position in the list
-        $index: index($positions, $position);
-
-        // If the position matches the direction, render a colored border
-        @if nth($directions, $index)==$direction {
-            border-#{$position}: $size solid $color;
-        }
-
-        @else {
-            border-#{$position}: $size solid transparent;
-        }
-    }
-}
 
 .Card {
     background-color: white;
@@ -41,7 +13,7 @@ $image-margin-top: 0%;
     .text {
         font-family: "Champagne";
         width: 90%;
-        color: $pink;
+        color: $yonder-pink;
         //font-size: 30px;
         //font-size: 2.777777777777778%;
         font-size:5vw;
@@ -82,7 +54,7 @@ $image-margin-top: 0%;
         .arrow-down {
             margin-right: 5%;
             margin-top:3vw;
-            @include arrow(down, 1.5vw, $pink);
+            @include arrow(down, 1.5vw, $yonder-pink);
             order: 2;
             //margin-top:25px;
         }

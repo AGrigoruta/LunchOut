@@ -473,7 +473,7 @@ body {
   height: 77%;
   width: 92%;
   margin: auto;
-  box-shadow: 0px 0px 10px #949494; }
+  box-shadow: 0px 0px 10px #4b4b4b; }
 
 .arrowOpacity {
   opacity: 0.2; }
@@ -502,13 +502,13 @@ body {
   color: #c4c4c4;
   min-width: 50px;
   text-align: center;
-  border: 2px solid #949494;
+  border: 2px solid #4b4b4b;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   border-right: none; }
 
 .input-field {
-  border: 2px solid #949494;
+  border: 2px solid #4b4b4b;
   width: 100%;
   padding: 7px;
   outline: none;
@@ -517,11 +517,11 @@ body {
   border-left: none; }
 
 .input-field:focus {
-  border: 2px solid #949494;
+  border: 2px solid #4b4b4b;
   border-left: 0px; }
 
 .icon:focus {
-  border: 2px solid #949494;
+  border: 2px solid #4b4b4b;
   border-left: 0px; }
 
 .addEventContainer {
@@ -682,3 +682,144 @@ body {
         .DeleteEvent .DeleteEventContainer .buttons .button-background:hover .No {
           text-align: center;
           margin: 0 auto; }
+
+.view-event {
+  background-color: white;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  top: 0px;
+  position: absolute;
+  width: 355px;
+  height: 328px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+  .view-event .Event-Data {
+    margin: 0 auto;
+    margin-bottom: 0px; }
+    .view-event .Event-Data .Name-And-Hour {
+      text-align: center;
+      margin: 0 auto;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-evenly; }
+      .view-event .Event-Data .Name-And-Hour .View-Location {
+        font-family: "Champagne";
+        margin: 0 auto;
+        margin-left: 5px;
+        margin-right: 5px;
+        order: 1;
+        color: #ED1E79;
+        font-size: 40px; }
+      .view-event .Event-Data .Name-And-Hour .View-Hour {
+        font-family: "Champagne";
+        margin-left: 5px;
+        margin-right: 5px;
+        margin: 0 auto;
+        order: 2;
+        color: #0071BC;
+        font-size: 40px; }
+    .view-event .Event-Data .Going-And-Nr {
+      flex-direction: row;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 0px;
+      margin-bottom: 10px; }
+      .view-event .Event-Data .Going-And-Nr .Going-Text {
+        font-family: "Champagne";
+        order: 1;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        color: #4b4b4b;
+        font-size: 25px; }
+      .view-event .Event-Data .Going-And-Nr .Nr-Of-Ppl-Going {
+        font-family: "Champagne";
+        order: 2;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        color: #4b4b4b;
+        font-size: 25px; }
+    .view-event .Event-Data .Going-Users-List {
+      max-height: 140px;
+      overflow: auto; }
+      .view-event .Event-Data .Going-Users-List .Event-User-Data {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 0px;
+        margin-top: 0px; }
+        .view-event .Event-Data .Going-Users-List .Event-User-Data .Going-User-Icon {
+          order: 1;
+          margin-left: 5px;
+          margin-right: 5px;
+          margin-bottom: 5px;
+          margin-top: 0px;
+          width: 29.84px;
+          height: 29.84px; }
+        .view-event .Event-Data .Going-Users-List .Event-User-Data .Going-User-Name {
+          font-family: "Champagne";
+          order: 2;
+          margin-left: 5px;
+          margin-right: 5px;
+          margin-bottom: 5px;
+          margin-top: 0px;
+          color: #4b4b4b;
+          font-size: 18px; }
+
+.Button-border-Join {
+  position: absolute;
+  top: 270px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin: 0 auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0px 0px 10px gray;
+  background-color: #0071BC;
+  border-radius: 100px;
+  height: 46.36px;
+  width: 323.4px;
+  display: flex;
+  align-items: center;
+  text-align: center; }
+  .Button-border-Join .Button-Join {
+    margin: 0 auto;
+    font: bold 1em Arial;
+    font-size: 20px;
+    color: white; }
+
+.Button-border-Join:hover {
+  position: absolute;
+  top: 270px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin: 0 auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0px 0px 10px black;
+  background-color: #0071BC;
+  border-radius: 100px;
+  height: 46.36px;
+  width: 323.4px;
+  display: flex;
+  align-items: center;
+  text-align: center; }
+  .Button-border-Join:hover .Button-Join {
+    margin: 0 auto;
+    font: bold 1em Arial;
+    font-size: 20px;
+    color: white; }
+
+#map {
+  position: absolute;
+  width: 354px;
+  height: 208px;
+  top: 328px; }

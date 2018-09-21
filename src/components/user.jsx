@@ -5,6 +5,7 @@ import Card from "./events/card.jsx";
 import ContMenu from "./events/contextualmenu.jsx";
 import NoEvents from "./events/noEvents.jsx"
 import DeleteEvent from "./events/deleteEvent.jsx"
+import ViewEvent from "./events/ViewEvent.jsx"
 import '../css/index.css'; 
 export default class User extends React.Component{
 
@@ -100,6 +101,7 @@ export default class User extends React.Component{
                     toggleDelete={this.state.toggleDelete}
                     callbackFromParentDelete={this.callbackHandleDelete}
                 />
+                <ViewEvent />
                 </div>
                 <ContMenu
                     toggleArrow={this.state.toggleArrow}
