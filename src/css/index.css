@@ -450,6 +450,7 @@ body {
 .Card .images {
   margin-right: 14%; }
   .Card .images img {
+    border-radius: 50%;
     width: 7vw;
     margin-top: 2vw;
     margin-right: 1%;

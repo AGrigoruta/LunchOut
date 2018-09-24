@@ -101,7 +101,8 @@ export default class User extends React.Component{
                     toggleDelete={this.state.toggleDelete}
                     callbackFromParentDelete={this.callbackHandleDelete}
                 />
-                <ViewEvent />
+                {//<ViewEvent />
+                }
                 </div>
                 <ContMenu
                     toggleArrow={this.state.toggleArrow}
