@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Route} from "react-router-dom";
+import axios from 'axios';
+import {BrowserRouter, Route, Link, Redirect } from "react-router-dom";
 import './css/index.css';
 import App from './App';
 import User from "./components/user"
@@ -8,7 +9,30 @@ import registerServiceWorker from './registerServiceWorker';
 import newEvent from "./components/newEvent";
 import timeSet from "./components/events/timeset";
 
+
+const PrivateRoute = ({component: Component, ...rest})=>{
+    <Route {...rest} render={(props)=>(
+         axios.get("https://localhost:8080/auth/logged")
+         .then(res=>{
+             if(res.data.authenticated){
+                 <Component {...props}/>
+             }else{
+                 <Redirect to='/' />
+             }
+         })
+    )}/>
+}
+
 class Home extends React.Component{
+
+    constructor(props){
+        super(props),
+        this.state={
+            
+        }
+
+    }
+
     render(){
         return(
             <BrowserRouter>
