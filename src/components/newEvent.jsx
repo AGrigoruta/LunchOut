@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./header/header";
-import Footer from "./header/footer.js";
+import Header from "./header&footer/header";
+import Footer from "./header&footer/footer.js";
 import Card from "./events/card.jsx";
 import ContMenu from "./events/contextualmenu.jsx";
 import '../css/index.css'; 

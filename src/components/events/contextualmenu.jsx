@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default class ContMenu extends React.Component {
 
@@ -14,9 +15,9 @@ export default class ContMenu extends React.Component {
                         (this.props.toggleArrow && !this.props.toggleDelete)? (
                             <div>
                                 <div className="object">
-                                    <div className="container">
+                                    <Link to="/edit" ><div className="container">
                                         <p className="menuItems">Edit Event</p>
-                                    </div>
+                                    </div></Link>
                                     <div className="container" onClick={this.props.callbackFromParentDelete}>
                                         <p className="menuItems" >Delete Event</p>
                                     </div>

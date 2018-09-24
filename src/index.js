@@ -7,6 +7,7 @@ import User from "./components/user"
 import registerServiceWorker from './registerServiceWorker';
 import newEvent from "./components/newEvent";
 import timeSet from "./components/events/timeset";
+import EditEvent from './components/events/editEvent/editEvent';
 
 class Home extends React.Component{
     render(){
@@ -17,6 +18,7 @@ class Home extends React.Component{
                     <Route path="/user" component={User}/>
                     <Route path="/add" component={newEvent}/>
                     <Route path="/timer" component={timeSet} />
+                    <Route path="/edit" component={EditEvent} />
                 </div>
             </BrowserRouter>
         );
