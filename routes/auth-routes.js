@@ -51,4 +51,11 @@ router.get('/facebook/callback', passport.authenticate('facebook',
 
 );*/
 
+router.get('/logged', (req, res) => {
+    res.send({
+        authenticated: req.isAuthenticated(),
+        user: req.user ? req.user : null
+    })
+})
+
 module.exports = router;

@@ -1,0 +1,162 @@
+.view-event {
+    background-color: white;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    top:0px;
+    position: absolute;
+    width: 355px;
+    height: 328px;
+    display: flex;
+    @include push--auto();
+    @include box_shadow(1);
+
+    .Event-Data{
+        margin: 0 auto;
+        margin-bottom: 0px;
+        .Name-And-Hour{
+            text-align: center;
+            margin: 0 auto;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-evenly;
+            .View-Location{
+                font-family: "Champagne";
+                margin: 0 auto;
+                margin-left: 5px;
+                margin-right: 5px;
+                order: 1;
+                color: $yonder-pink;
+                font-size: 40px;
+            }
+
+            .View-Hour{
+                font-family: "Champagne";
+                margin-left: 5px;
+                margin-right: 5px;
+                margin: 0 auto;
+                order: 2;
+                color: $yonder-blue;
+                font-size: 40px;
+            }
+        }
+
+        .Going-And-Nr{
+            flex-direction: row;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 0px;
+            margin-bottom: 10px;
+
+            .Going-Text{
+                font-family: "Champagne";
+                order: 1;
+                margin-left: 5px;
+                margin-right: 5px;
+                margin-bottom: 0px;
+                margin-top: 0px;
+                color: $yonder-gray;
+                font-size: 25px;
+            }
+
+            .Nr-Of-Ppl-Going{
+                font-family: "Champagne";
+                order: 2;
+                margin-left: 5px;
+                margin-right: 5px;
+                margin-bottom: 0px;
+                margin-top: 0px;
+                color: $yonder-gray;
+                font-size: 25px;
+            }
+        }
+
+        .Going-Users-List{
+            max-height: 140px;
+            overflow: auto;
+            .Event-User-Data{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                margin-bottom: 0px;
+                margin-top: 0px;
+                .Going-User-Icon{
+                    order: 1;
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    margin-bottom: 5px;
+                    margin-top: 0px;
+                    width: 29.84px;
+                    height: 29.84px;
+                }
+
+                .Going-User-Name{
+                    font-family: "Champagne";
+                    order: 2;
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    margin-bottom: 5px;
+                    margin-top: 0px;
+                    color: $yonder-gray;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+.Button-border-Join{
+    position: absolute;
+    top: 270px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    margin: 0 auto;
+    @include box_shadow(1);
+    box-shadow: 0px 0px 10px gray;
+    background-color: $yonder-blue;
+    border-radius: 100px;
+    height: 46.36px;
+    width: 323.4px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    .Button-Join{
+        margin: 0 auto;
+        font: bold 1em Arial;
+        font-size: 20px;
+        color: white;
+    }
+}
+
+.Button-border-Join:hover{
+    position: absolute;
+    top: 270px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    margin: 0 auto;
+    @include box_shadow(1);
+    box-shadow: 0px 0px 10px black;
+    background-color: $yonder-blue;
+    border-radius: 100px;
+    height: 46.36px;
+    width: 323.4px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    .Button-Join{
+        margin: 0 auto;
+        font: bold 1em Arial;
+        font-size: 20px;
+        color: white;
+    }
+}
+#map{
+    position: absolute;
+    width: 354px;
+    height: 208px;
+    top: 328px;
+}
