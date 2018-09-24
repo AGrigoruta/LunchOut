@@ -12,7 +12,8 @@ const express = require('express')
     , passport = require('passport')
     , https = require("https")
     , fs = require('fs')
-    , bodyParser = require('body-parser');
+    , bodyParser = require('body-parser')
+    , firebase= require("firebase");
 
 const options = {
         key: fs.readFileSync('./server.key'),
@@ -51,7 +52,13 @@ app.get('*', function (req, res) {
 mongoose.connect(keys.mongodb.dbURI , {useNewUrlParser: true}, ()=>{
     console.log('Connected to DB! \n\n');
 });
-
-
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyBGQWYi9jrcyDwgHJ0KzNPGpWHVmIx6r3k",
+    authDomain: "unch-out.firebaseapp.com",
+    databaseURL: "https://lunch-out.firebaseio.com",
+    storageBucket: "lunch-out.appspot.com",
+  };
+  firebase.initializeApp(config);
 
 

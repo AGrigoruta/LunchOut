@@ -1,117 +1,137 @@
-// In production, we register a service worker to serve assets from local cache.
+// const CACHE_VERSION = 1;
+// const CACHE_NAME = `GEEKY-CACHE-${CACHE_VERSION}`;
+// const PRECACHE_MANIFEST = 'resources-manifest.json';
 
-// This lets the app load faster on subsequent visits in production, and gives
-// it offline capabilities. However, it also means that developers (and users)
-// will only see deployed updates on the "N+1" visit to a page, since previously
-// cached resources are updated in the background.
+// importScripts('./appConfig.js');
+// importScripts('./common.js');
 
-// To learn more about the benefits of this model, read https://goo.gl/KwvDNy.
-// This link also includes instructions on opting out of this behavior.
+/** Firebase Init */
+importScripts('https://www.gstatic.com/firebasejs/4.8.1/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/4.8.1/firebase-database.js');
 
-const isLocalhost = Boolean(
-  window.location.hostname === 'localhost' ||
-    // [::1] is the IPv6 localhost address.
-    window.location.hostname === '[::1]' ||
-    // 127.0.0.1/8 is considered localhost for IPv4.
-    window.location.hostname.match(
-      /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-    )
-);
+export default function cazino() {
+  self.addEventListener('install', event => {
+      // event.waitUntil(
+      //     new Promise((resolve, reject) => {
+      //         caches
+      //             .open(CACHE_NAME)
+      //             .then(cache => {
+      //                 fetch(PRECACHE_MANIFEST).then(resp => {
+      //                     resp.json().then(jsonResp => {
+      //                         Promise.all(
+      //                             jsonResp.TO_PRECACHE.map(url =>
+      //                                 fetch(url).then(resp => {
+      //                                     cache.put(url, resp);
+      //                                 })
+      //                             )
+      //                         ).then(resolve);
+      //                     });
+      //                 });
+      //             })
+      //             .catch(reject);
+      //     })
+      // );
+      console.log('has been installed')
+  });
 
-export default function register() {
-  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-    // The URL constructor is available in all browsers that support SW.
-    const publicUrl = new URL(process.env.PUBLIC_URL, window.location);
-    if (publicUrl.origin !== window.location.origin) {
-      // Our service worker won't work if PUBLIC_URL is on a different origin
-      // from what our page is served on. This might happen if a CDN is used to
-      // serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374
-      return;
-    }
+  self.addEventListener('activate', function onActivate(event) {
+      firebase.initializeApp({
+        'messagingSenderId': '479665323924'
+      });
 
-    window.addEventListener('load', () => {
-      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+      // event.waitUntil(
+      //     caches.keys().then(keys => {
+      //         keys.filter(key => key !== CACHE_NAME).forEach(key => caches.delete(key));
+      //     })
+      // );
+  });
 
-      if (isLocalhost) {
-        // This is running on localhost. Lets check if a service worker still exists or not.
-        checkValidServiceWorker(swUrl);
+  // self.addEventListener('sync', event => {
+  //     if (event.tag === 'sendMessage') {
+  //         if (!firebase.apps.length) {
+  //             firebase.initializeApp(AppConfig.FIREBASE_CONFIG);
+  //         }
 
-        // Add some additional logging to localhost, pointing developers to the
-        // service worker/PWA documentation.
-        navigator.serviceWorker.ready.then(() => {
-          console.log(
-            'This web app is being served cache-first by a service ' +
-              'worker. To learn more, visit https://goo.gl/SC7cgQ'
-          );
-        });
-      } else {
-        // Is not local host. Just register service worker
-        registerValidSW(swUrl);
-      }
-    });
-  }
-}
+  //         event.waitUntil(
+  //             self.sendCachedMessages().then(() => {
+  //                 self.clients.matchAll().then(clients => {
+  //                     clients.forEach(client => client.postMessage(AppConfig.BACKGROUND_SYNC));
+  //                 });
+  //                 return displayNotification({
+  //                     data: {
+  //                         text: 'Messages have been sent in the background!',
+  //                         author: 'App',
+  //                         timestamp: Date.now()
+  //                     }
+  //                 }, 'important');
+  //             })
+  //         );
+  //     }
+  // });
 
-function registerValidSW(swUrl) {
-  navigator.serviceWorker
-    .register(swUrl)
-    .then(registration => {
-      registration.onupdatefound = () => {
-        const installingWorker = registration.installing;
-        installingWorker.onstatechange = () => {
-          if (installingWorker.state === 'installed') {
-            if (navigator.serviceWorker.controller) {
-              // At this point, the old content will have been purged and
-              // the fresh content will have been added to the cache.
-              // It's the perfect time to display a "New content is
-              // available; please refresh." message in your web app.
-              console.log('New content is available; please refresh.');
-            } else {
-              // At this point, everything has been precached.
-              // It's the perfect time to display a
-              // "Content is cached for offline use." message.
-              console.log('Content is cached for offline use.');
-            }
-          }
-        };
-      };
-    })
-    .catch(error => {
-      console.error('Error during service worker registration:', error);
-    });
-}
+  // self.addEventListener('fetch', function onFetch(event) {
+  //     if (event.request.url.indexOf(location.origin) === 0) {
+  //         console.log(event.request);
+  //         event.respondWith(precacheResourceOrNetwork(event));
+  //     }
+  // });
 
-function checkValidServiceWorker(swUrl) {
-  // Check if the service worker can be found. If it can't reload the page.
-  fetch(swUrl)
-    .then(response => {
-      // Ensure service worker exists, and that we really are getting a JS file.
-      if (
-        response.status === 404 ||
-        response.headers.get('content-type').indexOf('javascript') === -1
-      ) {
-        // No service worker found. Probably a different app. Reload the page.
-        navigator.serviceWorker.ready.then(registration => {
-          registration.unregister().then(() => {
-            window.location.reload();
-          });
-        });
-      } else {
-        // Service worker found. Proceed as normal.
-        registerValidSW(swUrl);
-      }
-    })
-    .catch(() => {
-      console.log(
-        'No internet connection found. App is running in offline mode.'
+  // self.addEventListener('notificationclick', function (event) {
+  //     event.notification.close();
+  //     event.waitUntil(
+  //         self.clients.matchAll({
+  //             type: 'window'
+  //         }).then(clientList => {
+  //             for (let i = 0; i < clientList.length; i++) {
+  //                 if (
+  //                     (clientList[i].url === location.origin || clientList[i].url.indexOf('localhost') !== -1) &&
+  //                     'focus' in clientList[i]
+  //                 ) {
+  //                     return clientList[i].focus();
+  //                 }
+  //             }
+  //             if (self.clients.openWindow) {
+  //                 return self.clients.openWindow('https://geekyandfun.github.io/PWA-workshop/');
+  //             }
+  //             return Promise.reject();
+  //         })
+  //     );
+  // });
+
+  self.addEventListener('push', event => {
+      event.waitUntil(
+          // displayNotification(event.data.json())
+          console.log('pushed some data')
       );
-    });
-}
+  });
 
-export function unregister() {
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.ready.then(registration => {
-      registration.unregister();
-    });
-  }
+  // function precacheResourceOrNetwork(event) {
+  //     const clonedRequest = event.request.clone();
+  //     return caches
+  //         .match(event.request)
+  //         .then(resp => {
+  //             debugger;
+  //             resp || fetch(clonedRequest);
+  //         });
+  // }
+
+  // function displayNotification(payload, tag = 'common-tag') {
+  //     const title = 'Geeky & Fun';
+
+  //     return self.clients.matchAll({
+  //         type: 'window'
+  //     }).then(windowClients => {
+  //         if (windowClients.filter(client => client.focused).length === 0) {
+  //             return self.registration.showNotification(title, {
+  //                 icon: 'https://geekyandfun.github.io/PWA-workshop/public/images/icons/icon-512x512.png',
+  //                 body: `${payload.data.text}
+  // ${payload.data.author} | ${self.getDateString(new Date(Number(payload.data.timestamp)))}`,
+  //                 tag,
+  //                 vibrate: [100, 50, 100, 50, 100, 50],
+  //                 requireInteraction: false
+  //             });
+  //         }
+  //         return true;
+  //     });
+  // }
 }

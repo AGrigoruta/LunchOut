@@ -24,4 +24,4 @@ class Home extends React.Component{
 }
 
 ReactDOM.render(<Home />, document.getElementById('root'));
-//registerServiceWorker();
+registerServiceWorker();
