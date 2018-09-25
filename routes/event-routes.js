@@ -6,35 +6,25 @@ var user = require('../models/user-model.js');
 var http = require('http')
 router.route('/event')
 
-    .get(function (req, res) {
-
-        event.find(function (err, events) {
-            if (err) {
-                return res.send(err);
-            }
-            res.json(events);
-        })
+.get(function(req,res){
+    console.log("Doin Get");
+    event.find(function (err, events){
+        console.log("Stuff ongoing");
+        if(err){
+            return res.send(err);
+        }
+        res.json(events);
     })
-
-    .post(function (req, res) {
-        var events = new event(req.body);
-        console.log(events);
-
-        events.save(function (err, events) {
-
-            if (err) {
-                return res.send(err);
-            }
-
-            // let's send the notification
-            // Build the post string from an object
-            var post_data = querystring.stringify({
-                "message": {
-                    "token": "AAAAb65H_5Q:APA91bExIUrDvUirUuiXQx4lhXodNVvMVz9L35XcFNqCidr4ayXWWSxxlc94LsAxBYlXZNuuvZgUwWt9k9--OOQ25oWudRs_31yTRphUc7-ZjJ3fw0cyL1rJdUQQm9zPPqAjRwY0oAwy",
-                    "notification": {
-                        "body": "New event added!",
-                        "title": "Let's go eat",
-                    }
+})
+      
+.post(function(req,res){
+    console.log("Doin Post");
+            var events = new event(req.body);
+            
+            console.log(events);
+            events.save(function(err, events){
+                if(err){
+                    return res.send(err);
                 }
             });
 
@@ -99,6 +89,7 @@ router.route('/event')
 
 router.route('/event/:id')
 
+<<<<<<< HEAD
     .get(function (req, res) {
         event.findOne({ _id: req.params.id }, function (err, events) {
             if (err) {
@@ -114,11 +105,37 @@ router.route('/event/:id')
                 return res.send(err);
             }
             res.json("Succes in deleting object with id: " + req.params.id);
+=======
+        .get(function(req,res){
+            console.log("Doin Get x2");
+            event.findOne({_id : req.params.id}, function (err,events){
+                if(err){
+                    return res.send(err);
+                }
+                res.json(events);
+            });
+        })
+
+        .delete(function(req,res){
+            console.log("Doin Delete x2");
+            event.remove({_id: req.params.id}, function(err,events){
+                if(err){
+                    return res.send(err);
+                }
+                res.json("Succes in deleting object with id: " + req.params.id );
+            })
+>>>>>>> dev
         })
     })
 
+<<<<<<< HEAD
     .put(function (req, res) {
         var conditions = { _id: req.params.id };
+=======
+        .put(function(req,res){
+            console.log("Doin Put x2");
+            var conditions = {_id : req.params.id};
+>>>>>>> dev
 
         event.update(conditions, req.body)
             .then(doc => {
@@ -130,6 +147,7 @@ router.route('/event/:id')
 
 router.route('/user/:id')
 
+<<<<<<< HEAD
     .get(function (req, res) {
         user.findOne({ authId: req.params.id }, function (err, users) {
             if (err) {
@@ -138,6 +156,17 @@ router.route('/user/:id')
             res.json(users);
         });
     })
+=======
+        .get(function(req,res){
+            console.log("Doin Get x3");
+            user.findOne({authId : req.params.id}, function (err,users){
+                if(err){
+                    return res.send(err);
+                }
+                res.json(users);
+            });
+        })
+>>>>>>> dev
 
 module.exports = router;
 

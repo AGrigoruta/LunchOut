@@ -1,0 +1,93 @@
+
+.DeleteEvent {
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    position: absolute;
+    .DeleteEventContainer {
+        width: 354px;
+        height: 306px;
+        background-color: white;
+        @include box_shadow(2);
+        @include push--auto();
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .DeleteLogo {
+            //display: flex;
+            @include push--auto();
+            width: 96px;
+            order: 1;
+        }
+
+        .DeleteEventText {
+            @include push--auto();
+            overflow: hidden;
+            max-width: 300px;
+            //font-family: 'Arial';
+            font: bold 1em Arial;
+            text-align: center;
+            font-size: 22px;
+            color: $yonder-pink;
+            order: 2;
+        }
+
+        .buttons {
+            order: 3;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            color: white;
+            font: bold 1em Arial;
+            .button-background{
+                margin: 0 auto;
+                margin-top: 10px;
+                width: 134.5px;
+                height: 46.36px;
+                background-color: $yonder-blue;
+                border-radius: 40px;
+                color: white;
+                display: flex;
+                align-items: center;
+                box-shadow: 0px 0px 10px gray;
+                .Yes{
+                    text-align: center;
+                    margin: 0 auto;
+                    //align-items: center;
+                }
+                .No{
+                    text-align: center;
+                    margin: 0 auto;
+                    //align-items: center;
+                }
+            }
+            .button-background:hover{
+                margin: 0 auto;
+                margin-top: 10px;
+                width: 134.5px;
+                height: 46.36px;
+                background-color: $yonder-blue;
+                border-radius: 40px;
+                color: white;
+                display: flex;
+                align-items: center;
+                box-shadow: 0px 0px 10px black;
+                .Yes{
+                    text-align: center;
+                    margin: 0 auto;
+                    //align-items: center;
+                }
+                .No{
+                    text-align: center;
+                    margin: 0 auto;
+                    //align-items: center;
+                }
+            }
+        }
+    }
+}

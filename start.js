@@ -1,4 +1,5 @@
 const express = require('express')
+    , session = require('express-session')
     , app = express()
     , port = 8080
     , authRoutes = require('./routes/auth-routes')
@@ -25,23 +26,27 @@ const options = {
 const server = https.createServer(options,app).listen(port,function(){
         console.log("Server started at port :"+port);
 });
+app.use(bodyParser.json({useNewUrlParser: true}));
 
 //initialize passport
+app.use(session({
+    secret: 'asdf',
+    resave: false,
+    saveUninitialized: true
+}))
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(bodyParser.json({useNewUrlParser: true}));
 app.use(express.static('build'));
 
-app.use(express.static('build'));
 
 app.use('/auth', authRoutes); //index/auth/...
 app.use('/api', eventRoutes); //index/api/...
 app.use('/profile', profileRoutes); //index/profile/...
 
-app.use(cookieSession({
-    maxAge: 25 * 60 * 60 * 1000, // the cookie will last a day
-    keys: [keys.session.cookieKey]
-}));
+// app.use(cookieSession({
+//     maxAge: 25 * 60 * 60 * 1000, // the cookie will last a day
+//     keys: [keys.session.cookieKey]
+// }));
 
 
 

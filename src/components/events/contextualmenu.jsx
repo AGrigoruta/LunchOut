@@ -1,48 +1,34 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default class ContMenu extends React.Component {
 
     constructor(props) {
         super(props);
-
-        this.state = {
-            objects: [
-                {
-                    option: 'Edit Event',
-                },
-                {
-                    option: 'Delete Event',
-                },
-            ]
-        }
     }
 
-    
     render() {
         return (
-            <div className="popUp">
+            <div className="popUpp">
                 <div className="popUp ">
-               { 
-                this.props.toggleArrow ? (
-                    <div>
-                        <div className="object">
-                        {
-                            this.state.objects.map((item, index) => {
-                                return (
-                                    <div key={index} className="container">
-                                        <p className="menuItems">{item.option}</p>
+                    {
+                        (this.props.toggleArrow && !this.props.toggleDelete)? (
+                            <div>
+                                <div className="object">
+                                    <Link to="/edit" ><div className="container">
+                                        <p className="menuItems">Edit Event</p>
+                                    </div></Link>
+                                    <div className="container" onClick={this.props.callbackFromParentDelete}>
+                                        <p className="menuItems" >Delete Event</p>
                                     </div>
-                                )
-                            })
-                        }
-                        </div>
-                        <div className="cancel-button" onClick={ this.props.callbackFromParent}>
-                            <p className="cancel" >Cancel</p>
-                        </div>
-                    </div>
-                ) : ''
-               }
-               </div>
+                                </div>
+                                <div className="cancel-button" onClick={this.props.callbackFromParent}>
+                                    <p className="cancel" >Cancel</p>
+                                </div>
+                            </div>
+                        ) : ''
+                    }
+                </div>
             </div>
         );
     }
