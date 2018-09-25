@@ -4,17 +4,17 @@ export default class Card extends React.Component {
     constructor(props) {
         super(props);
 
-         this.state = {
+        this.state = {
 
-             arrowToggle: true,
-             objects: [
-                 {
-                     location: 'Tribeca',
-                     time: '12:00',
-                     png: 'https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2041628029229996&height=200&width=200&ext=1539846081&hash=AeQG29wRevjapn5n'
-               }
-             ]
-         }
+            arrowToggle: true,
+            objects: [
+                {
+                    location: 'Tribeca',
+                    time: '12:00',
+                    png: 'https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2041628029229996&height=200&width=200&ext=1539846081&hash=AeQG29wRevjapn5n'
+                }
+            ]
+        }
     }
    
 

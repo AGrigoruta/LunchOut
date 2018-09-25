@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./header/header";
-import Footer from "./header/footer.js";
+import Header from "./header&footer/header";
+import Footer from "./header&footer/footer.js";
 import Card from "./events/card.jsx";
 import ContMenu from "./events/contextualmenu.jsx";
 import NoEvents from "./events/noEvents.jsx"
@@ -17,7 +17,8 @@ export default class User extends React.Component{
             isLoading: true,
             contacts: [],
             idToModify:"",
-            eventToModify:""
+            eventToModify:"",
+            profileID: ""
         }
         this.callbackHandleArrow = this.callbackHandleArrow.bind(this);
         this.callbackHandleDelete = this.callbackHandleDelete.bind(this);
@@ -54,7 +55,7 @@ export default class User extends React.Component{
 
         fetch('https://localhost:8080/api/event')
         .then(response =>response.json())
-        .then(parsedJSON => parsedJSON.map((user) =>{
+        .then(parsedJSON => parsedJSON.map((user) => {
 
            
             return {
@@ -63,7 +64,8 @@ export default class User extends React.Component{
                 location: `${user.location}`,
                 startTime : `${user.startTime}`,
                 participantsID : user.participantsID,
-                photo: []
+                photo: [],
+                creatorId: user.creatorID,
             };
         }))
         .then(contacts => this.setState({
@@ -94,8 +96,21 @@ export default class User extends React.Component{
         })}
         ).catch(error => console.log('parsing failed', error))
     }
-    
-    
+   
+    fetchuser(){
+        fetch('https://localhost:8080/api/user/')
+        .then(response =>response.json())
+        .then(parsedJSON => parsedJSON.map((profile) => {
+
+           
+            return {
+                profileID : user.authId
+            };
+        }))
+        .then(profileID => this.setState({
+            profileID
+        }))
+    }
     
     render(){
         const {isLoading,contacts} = this.state;
@@ -105,8 +120,8 @@ export default class User extends React.Component{
                 <div className="main__card__component">
                 {
                      isLoading && contacts.length > 0 ? contacts.map(contact =>{
-                         const { location, startTime, photo, id} = contact
-                         return  <Card location={location} time={startTime} photo={photo} id={id} callbackFromParent={this.callbackHandleArrow}
+                         const { location, startTime, photo, id, creatorId } = contact
+                         return  <Card location={location} time={startTime} photo={photo} id={id} creatorId={creatorId} callbackFromParent={this.callbackHandleArrow}
                          toggleArrow={ !this.state.toggleArrow }/>
                          
                      }) : <NoEvents />
