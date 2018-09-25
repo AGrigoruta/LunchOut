@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {Link} from "react-router-dom";
 import TimeKeeper from 'react-timekeeper';
 import "../../sass/main/events/user.scss";
 export default class Timeset extends React.Component {
@@ -22,6 +23,7 @@ export default class Timeset extends React.Component {
 
     handleTimeChange(newTime) {
         this.setState({ time: newTime.formatted24 })
+        
     }
     toggleTimekeeper(val) {
         this.setState({ displayTimepicker: val })
@@ -38,7 +40,9 @@ export default class Timeset extends React.Component {
                                     <TimeKeeper
                                         time={this.state.time}
                                         onChange={this.handleTimeChange}
+                                        onCancelClick={this.props.handleVisibility}
                                         onDoneClick={() => {
+                                            
                                             axios.get("https://localhost:8080/auth/logged")
                                                 .then(res => {
 
@@ -66,7 +70,6 @@ export default class Timeset extends React.Component {
                                                         })
                                                     })
                                                 })
-
                                         }
 
                                         }

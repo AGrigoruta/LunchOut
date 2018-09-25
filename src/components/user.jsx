@@ -17,23 +17,36 @@ export default class User extends React.Component {
             toggleDelete: false,
             isLoading: true,
             contacts: [],
+            idToModify:"",
+            eventToModify:"",
             profileID: ""
         }
         this.callbackHandleArrow = this.callbackHandleArrow.bind(this);
         this.callbackHandleDelete = this.callbackHandleDelete.bind(this);
     }
 
-    callbackHandleArrow(dataFromChildren) {
+    callbackHandleArrow(dataFromChildren,location){
         this.setState({
-            toggleArrow: !this.state.toggleArrow
+            toggleArrow: !this.state.toggleArrow,
+            idToModify: dataFromChildren,
+            eventToModify: location
+
         })
     }
     callbackHandleDelete(dataFromChildren) {
+       if(dataFromChildren){
         this.setState({
             //toggleArrow: !this.state.toggleArrow,
             toggleDelete: !this.state.toggleDelete
         })
-        console.log("Delete o.o");
+        }else{
+            this.fetchData();
+            //this.forceUpdate();
+            this.setState({
+                toggleArrow: !this.state.toggleArrow,
+                toggleDelete:!this.state.toggleDelete,
+            })
+        }
     }
     componentDidMount() {
         this.fetchData();
@@ -101,21 +114,22 @@ export default class User extends React.Component {
             <div className="events__div">
                 <Header name="Opened Events" />
                 <div className="main__card__component">
-                    {
-                        isLoading && contacts.length > 0 ? contacts.map(contact => {
-                            const { location, startTime, photo , creatorId} = contact
-                            
-                            return <Card location={location} time={startTime} photo={photo} creatorId={creatorId} userId={this.state.profileID} callbackFromParent={this.callbackHandleArrow}
-                                toggleArrow={!this.state.toggleArrow} />
-
-                        }) : <NoEvents />
-                    }
-                    <DeleteEvent
-                        toggleDelete={this.state.toggleDelete}
-                        callbackFromParentDelete={this.callbackHandleDelete}
-                    />
-                    {//<ViewEvent />
-                    }
+                {
+                     isLoading && contacts.length > 0 ? contacts.map(contact =>{
+                         const { location, startTime, photo, id, creatorId } = contact
+                         return  <Card location={location} time={startTime} photo={photo} id={id} creatorId={creatorId} callbackFromParent={this.callbackHandleArrow}
+                         toggleArrow={ !this.state.toggleArrow }/>
+                         
+                     }) : <NoEvents />
+                }
+                <DeleteEvent
+                    toggleDelete={this.state.toggleDelete}
+                    callbackFromParentDelete={this.callbackHandleDelete}
+                    id ={this.state.idToModify}
+                    event = {this.state.eventToModify}
+                />
+                {//<ViewEvent />
+                }
                 </div>
 
                 <ContMenu
@@ -125,7 +139,8 @@ export default class User extends React.Component {
                     callbackFromParent={this.callbackHandleArrow}
                     toggleDelete={this.state.toggleDelete}
                     callbackFromParentDelete={this.callbackHandleDelete}
-
+                   
+                    
                 />
 
                 <Footer toggleArrow={this.state.toggleArrow} />
