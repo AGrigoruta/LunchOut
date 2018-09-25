@@ -159,6 +159,10 @@ var Timepicker = exports.Timepicker = function (_React$Component) {
 				},
 				doneButton: {
 					display: 'block',
+					margin: '0',
+					float: 'left',
+					width:'49%',
+					borderRight: '1px solid' + config.DONE_BUTTON_BORDER_COLOR,
 					color: config.DONE_BUTTON_COLOR,
 					textTransform: 'uppercase',
 					borderTop: '1px solid ' + config.DONE_BUTTON_BORDER_COLOR,
@@ -172,6 +176,9 @@ var Timepicker = exports.Timepicker = function (_React$Component) {
 				},
 				cancelButton: {
 					display: 'block',
+					margin: '0',
+					float: 'left',
+					width:'49%',
 					color: config.CANCEL_BUTTON_COLOR,
 					textTransform: 'uppercase',
 					borderTop: '1px solid ' + config.CANCEL_BUTTON_BORDER_COLOR,
