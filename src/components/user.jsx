@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "./header&footer/header";
 import Footer from "./header&footer/footer.js";
+import axios from "axios";
 import Card from "./events/card.jsx";
-import axios from 'axios';
 import ContMenu from "./events/contextualmenu.jsx";
 import NoEvents from "./events/noEvents.jsx"
 import DeleteEvent from "./events/deleteEvent.jsx"
@@ -17,15 +17,15 @@ export default class User extends React.Component {
             toggleDelete: false,
             isLoading: true,
             contacts: [],
-            idToModify:"",
-            eventToModify:"",
+            idToModify: "",
+            eventToModify: "",
             profileID: ""
         }
         this.callbackHandleArrow = this.callbackHandleArrow.bind(this);
         this.callbackHandleDelete = this.callbackHandleDelete.bind(this);
     }
 
-    callbackHandleArrow(dataFromChildren,location){
+    callbackHandleArrow(dataFromChildren, location) {
         this.setState({
             toggleArrow: !this.state.toggleArrow,
             idToModify: dataFromChildren,
@@ -34,17 +34,17 @@ export default class User extends React.Component {
         })
     }
     callbackHandleDelete(dataFromChildren) {
-       if(dataFromChildren){
-        this.setState({
-            //toggleArrow: !this.state.toggleArrow,
-            toggleDelete: !this.state.toggleDelete
-        })
-        }else{
+        if (dataFromChildren) {
+            this.setState({
+                //toggleArrow: !this.state.toggleArrow,
+                toggleDelete: !this.state.toggleDelete
+            })
+        } else {
             this.fetchData();
             //this.forceUpdate();
             this.setState({
                 toggleArrow: !this.state.toggleArrow,
-                toggleDelete:!this.state.toggleDelete,
+                toggleDelete: !this.state.toggleDelete,
             })
         }
     }
@@ -60,6 +60,7 @@ export default class User extends React.Component {
 
 
                 return {
+                    id: `${user._id}`,
                     name: `${user.schemaId}`,
                     location: `${user.location}`,
                     startTime: `${user.startTime}`,
@@ -90,9 +91,7 @@ export default class User extends React.Component {
                                 this.setState(stateBackup)
                                 // console.log(stateBackup);
                             })
-
                     }
-
                 })
             }
             ).catch(error => console.log('parsing failed', error))
@@ -109,27 +108,27 @@ export default class User extends React.Component {
 
     render() {
         this.fetchuser();
-        const { isLoading, contacts, profileID, creatorId } = this.state;
+        const { isLoading, contacts, profileID, creatorId} = this.state;
         return (
             <div className="events__div">
                 <Header name="Opened Events" />
                 <div className="main__card__component">
-                {
-                     isLoading && contacts.length > 0 ? contacts.map(contact =>{
-                         const { location, startTime, photo, id, creatorId } = contact
-                         return  <Card location={location} time={startTime} photo={photo} id={id} creatorId={creatorId} callbackFromParent={this.callbackHandleArrow}
-                         toggleArrow={ !this.state.toggleArrow }/>
-                         
-                     }) : <NoEvents />
-                }
-                <DeleteEvent
-                    toggleDelete={this.state.toggleDelete}
-                    callbackFromParentDelete={this.callbackHandleDelete}
-                    id ={this.state.idToModify}
-                    event = {this.state.eventToModify}
-                />
-                {//<ViewEvent />
-                }
+                    {
+                        isLoading && contacts.length > 0 ? contacts.map(contact => {
+                            const { location, startTime, photo, id, creatorId } = contact
+                            return <Card location={location} time={startTime} photo={photo} id={id} userId={profileID} creatorId={creatorId} callbackFromParent={this.callbackHandleArrow}
+                                toggleArrow={!this.state.toggleArrow} />
+
+                        }) : <NoEvents />
+                    }
+                    <DeleteEvent
+                        toggleDelete={this.state.toggleDelete}
+                        callbackFromParentDelete={this.callbackHandleDelete}
+                        id={this.state.idToModify}
+                        event={this.state.eventToModify}
+                    />
+                    {//<ViewEvent />
+                    }
                 </div>
 
                 <ContMenu
@@ -139,8 +138,8 @@ export default class User extends React.Component {
                     callbackFromParent={this.callbackHandleArrow}
                     toggleDelete={this.state.toggleDelete}
                     callbackFromParentDelete={this.callbackHandleDelete}
-                   
-                    
+
+
                 />
 
                 <Footer toggleArrow={this.state.toggleArrow} />

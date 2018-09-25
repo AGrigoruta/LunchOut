@@ -1,13 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom";
-import TimeKeeper from 'react-timekeeper';
+import TimeKeeper from '../react-timekeeper';
 import "../../sass/main/events/user.scss";
 export default class Timeset extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            time: '6:50 am',
+            time: '6:50',
             displayTimepicker: true,
             user: '',
             location: ''

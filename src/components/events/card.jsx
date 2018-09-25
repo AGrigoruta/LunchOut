@@ -35,7 +35,8 @@ export default class Card extends React.Component {
                                         <p className="time">{time}</p>
                                     </div>
                                     { (this.props.creatorId == this.props.userId) ? (
-                                    <div className="arrow-down" onClick={callbackFromParent} ></div> ) : ""}
+                                    <div className="arrow-down" onClick={() =>{callbackFromParent(id,location)}} ></div>)
+                                    : ""}
                                 </div>
                                 {photo.map(function(imageSrc) {
                                     return (
