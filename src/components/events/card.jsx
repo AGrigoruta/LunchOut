@@ -19,9 +19,10 @@ export default class Card extends React.Component {
    
 
     render() {
-        const {location, time, photo, callbackFromParent} = this.props;
+        const {location, time, photo, callbackFromParent, creatorId, userId} = this.props;
         return (
-            <div className={this.props.toggleArrow ? "" : "app-content arrowOpacity"}>
+          
+            <div className={(this.props.toggleArrow) ? "" : "app-content arrowOpacity"}>
                 {
                     
                     this.state.objects.map((item, index) => {
@@ -33,7 +34,8 @@ export default class Card extends React.Component {
                                         <p className="location">{location}</p>
                                         <p className="time">{time}</p>
                                     </div>
-                                   <div className="arrow-down" onClick={callbackFromParent} ></div> 
+                                    { (this.props.creatorId == this.props.userId) ? (
+                                    <div className="arrow-down" onClick={callbackFromParent} ></div> ) : ""}
                                 </div>
                                 {photo.map(function(imageSrc) {
                                     return (
@@ -50,6 +52,7 @@ export default class Card extends React.Component {
                     })
                 }
             </div>
+           
 
         );
     }

@@ -21,7 +21,7 @@ export default class Timeset extends React.Component {
 
 
     handleTimeChange(newTime) {
-        this.setState({ time: newTime.formatted })
+        this.setState({ time: newTime.formatted24 })
     }
     toggleTimekeeper(val) {
         this.setState({ displayTimepicker: val })
