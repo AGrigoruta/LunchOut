@@ -40,6 +40,7 @@ export default class Timeset extends React.Component {
                                     <TimeKeeper
                                         time={this.state.time}
                                         onChange={this.handleTimeChange}
+                                        onCancelClick={this.props.handleVisibility}
                                         onDoneClick={() => {
                                             
                                             axios.get("https://localhost:8080/auth/logged")
