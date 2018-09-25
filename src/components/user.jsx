@@ -8,6 +8,7 @@ import NoEvents from "./events/noEvents.jsx"
 import DeleteEvent from "./events/deleteEvent.jsx"
 import ViewEvent from "./events/ViewEvent.jsx"
 import '../css/index.css';
+import EditEvent from "./events/editEvent/editEvent";
 export default class User extends React.Component {
 
     constructor(props) {
@@ -15,12 +16,14 @@ export default class User extends React.Component {
         this.state = {
             toggleArrow: false,
             toggleDelete: false,
+            toggleEdit: false,
             isLoading: true,
             contacts: [],
             profileID: ""
         }
         this.callbackHandleArrow = this.callbackHandleArrow.bind(this);
         this.callbackHandleDelete = this.callbackHandleDelete.bind(this);
+        this.callbackHandleEdit = this.callbackHandleEdit.bind(this);
     }
 
     callbackHandleArrow(dataFromChildren) {
@@ -34,6 +37,20 @@ export default class User extends React.Component {
             toggleDelete: !this.state.toggleDelete
         })
         console.log("Delete o.o");
+    }
+    callbackHandleEdit(dataFromChildren) {
+        if (dataFromChildren) {
+            this.setState({
+                //toggleArrow: !this.state.toggleArrow,
+                toggleEdit: !this.state.toggleEdit
+            })
+        } else {
+            this.fetchData();
+            this.setState({
+                toggleArrow: !this.state.toggleArrow,
+                toggleEdit: !this.state.toggleEdit,
+            })
+        }
     }
     componentDidMount() {
         this.fetchData();
@@ -114,6 +131,12 @@ export default class User extends React.Component {
                         toggleDelete={this.state.toggleDelete}
                         callbackFromParentDelete={this.callbackHandleDelete}
                     />
+                    <EditEvent
+                     toggleEdit={this.state.toggleEdit}
+                     callbackFromParentEdit={this.callbackHandleEdit}
+                     id={this.state.idToModify}
+                     event={this.state.eventToModify}
+                     />
                     {//<ViewEvent />
                     }
                 </div>
@@ -125,6 +148,7 @@ export default class User extends React.Component {
                     callbackFromParent={this.callbackHandleArrow}
                     toggleDelete={this.state.toggleDelete}
                     callbackFromParentDelete={this.callbackHandleDelete}
+                    callbackFromParentEdit={this.callbackHandleEdit}
 
                 />
 

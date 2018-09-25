@@ -12,12 +12,12 @@ export default class ContMenu extends React.Component {
             <div className="popUpp">
                 <div className="popUp ">
                     {
-                        (this.props.toggleArrow && !this.props.toggleDelete)? (
+                        (this.props.toggleArrow && !this.props.toggleDelete && !this.props.toggleEdit)? (
                             <div>
                                 <div className="object">
-                                    <Link to="/edit" ><div className="container">
+                                    <div className="container" onClick={this.props.callbackFromParentEdit}>
                                         <p className="menuItems">Edit Event</p>
-                                    </div></Link>
+                                    </div>
                                     <div className="container" onClick={this.props.callbackFromParentDelete}>
                                         <p className="menuItems" >Delete Event</p>
                                     </div>
