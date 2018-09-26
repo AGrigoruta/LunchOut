@@ -2,6 +2,7 @@ import React from 'react';
 import "../../css/index.css";
 import Search from "../events/search.js";
 import axios from 'axios';
+
 import placeholder from "../../view/images/placeholder.png"
 import searchEvent from "../../view/images/searchicon.png";
 import "../../sass/main/events/user.scss";
@@ -26,6 +27,7 @@ export default class addEvent extends React.Component {
             
 
         })
+      
     }
     setVenue(res){
         this.setState({

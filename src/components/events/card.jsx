@@ -19,7 +19,7 @@ export default class Card extends React.Component {
    
 
     render() {
-        const {location, time, photo, callbackFromParent, creatorId, userId} = this.props;
+        const {location, time, photo, callbackFromParent, id} = this.props;
         return (
           
             <div className={(this.props.toggleArrow) ? "" : "app-content arrowOpacity"}>
@@ -27,7 +27,7 @@ export default class Card extends React.Component {
                     
                     this.state.objects.map((item, index) => {
                         return (
-                            <div key={index} className="Card">
+                            <div key={index} data-id={id} className="Card">
                                 <div className="CardRow">
                                     
                                     <div className="text">
@@ -35,11 +35,12 @@ export default class Card extends React.Component {
                                         <p className="time">{time}</p>
                                     </div>
                                     { (this.props.creatorId == this.props.userId) ? (
-                                    <div className="arrow-down" onClick={callbackFromParent} ></div> ) : ""}
+                                    <div className="arrow-down" onClick={() =>{callbackFromParent(id,location)}} ></div>)
+                                    : ""}
                                 </div>
                                 {photo.map(function(imageSrc) {
                                     return (
-                                        <div key ={imageSrc}className="images">
+                                        <div key ={imageSrc} className="images">
                                         
                                             <img src={ imageSrc } />
                                         

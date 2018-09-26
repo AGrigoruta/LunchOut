@@ -589,6 +589,9 @@ body {
   .addEventContainer .react-timekeeper__minute-select {
     color: #c7c2c2; }
 
+.editClock__container {
+  z-index: 5; }
+
 .noEventss {
   width: 90%;
   display: block;
