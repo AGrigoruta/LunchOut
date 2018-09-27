@@ -1,16 +1,35 @@
 
 // import firebase from "firebase";
+var config = {
+    mapiKey: "AIzaSyBGQWYi9jrcyDwgHJ0KzNPGpWHVmIx6r3k",
+    authDomain: "lunch-out.firebaseapp.com",
+    databaseURL: "https://lunch-out.firebaseio.com",
+    projectId: "lunch-out",
+    storageBucket: "lunch-out.appspot.com",
+    messagingSenderId: "479665323924"
+};
 
 if ('function' === typeof importScripts) {
     importScripts('https://www.gstatic.com/firebasejs/4.8.1/firebase-app.js');
     importScripts('https://www.gstatic.com/firebasejs/4.8.1/firebase-database.js');
+
     self.addEventListener('install', event => {
         console.log('has been installed')
     });
 
     self.addEventListener('activate', function onActivate(event) {
-        firebase.initializeApp({
-            'messagingSenderId': '479665323924'
+        console.log(firebase)
+        console.log(config)
+        console.log(firebase.initializeApp(config))
+        firebase.initializeApp(config);
+        firebase.messaging().setBackgroundMessageHandler(payload => {
+            const title = payload.notification.title;
+            console.log('payload', payload.notification.icon);
+            const options = {
+                body: payload.notification.body,
+                icon: payoloade.notification.icon
+            }
+            return self.registration.showNotification(title, options);
         });
     });
 

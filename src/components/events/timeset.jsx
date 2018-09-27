@@ -92,8 +92,8 @@ export default class Timeset extends React.Component {
                                                             message: {
                                                                 token: window.FCMToken,
                                                                 notification:{
-                                                                    body: "New event added",
-                                                                    title: "Let's go eat",
+                                                                    body: "New event added near you",
+                                                                    title: this.state.location
                                                                 }
                                                             }
                                                         }

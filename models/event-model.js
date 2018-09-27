@@ -5,7 +5,8 @@ const eventSchema = new mongoose.Schema({
     location: String,
     startTime: String,
     status: String,
-    participantsID: [String]
+    participantsID: [String],
+    name: String
 })
 
 const event = mongoose.model('event',eventSchema);
