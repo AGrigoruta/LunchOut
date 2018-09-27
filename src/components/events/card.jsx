@@ -27,10 +27,14 @@ export default class Card extends React.Component {
                     
                     this.state.objects.map((item, index) => {
                         return (
-                            <div key={index} data-id={id} className="Card">
+                            <div key={index} data-id={id} className="Card" >
                                 <div className="CardRow">
                                     
-                                    <div className="text">
+                                    <div className="text" onClick={()=>{
+                                this.props.joinVisibility();
+                                this.props.callbackForJoin(id,this.props.userId);
+                            
+                            }}>
                                         <p className="location">{location}</p>
                                         <p className="time">{time}</p>
                                     </div>
@@ -40,7 +44,11 @@ export default class Card extends React.Component {
                                 </div>
                                 {photo.map(function(imageSrc) {
                                     return (
-                                        <div key ={imageSrc} className="images">
+                                        <div key ={imageSrc} className="images" onClick={()=>{
+                                            this.props.joinVisibility();
+                                            this.props.callbackForJoin(id,this.props.userId);
+                                        
+                                        }}>
                                         
                                             <img src={ imageSrc } />
                                         

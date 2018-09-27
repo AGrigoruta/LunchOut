@@ -9,6 +9,7 @@ import DeleteEvent from "./events/deleteEvent.jsx"
 import ViewEvent from "./events/ViewEvent.jsx"
 import '../css/index.css';
 import EditEvent from "./events/editEvent/editEvent";
+import JoinEvent from "./events/joinEvent/joinEvent";
 export default class User extends React.Component {
 
     constructor(props) {
@@ -17,16 +18,20 @@ export default class User extends React.Component {
             toggleArrow: false,
             toggleDelete: false,
             toggleEdit: false,
+            toggleJoin: false,
             isLoading: true,
             contacts: [],
             idToModify: "",
             eventToModify: "",
-            profileID: ""
+            profileID: "",
+            participants:[""]
         }
         this.fetchuser();
         this.callbackHandleArrow = this.callbackHandleArrow.bind(this);
         this.callbackHandleDelete = this.callbackHandleDelete.bind(this);
         this.callbackHandleEdit = this.callbackHandleEdit.bind(this);
+        this.callbackHandleJoin = this.callbackHandleJoin.bind(this);
+        this.callbackFromJoin = this.callbackFromJoin.bind(this);
     }
 
     closePop=()=>{
@@ -35,7 +40,11 @@ export default class User extends React.Component {
             toggleArrow: !this.state.toggleArrow
         })
     }
-
+    handleJoin=()=>{
+        this.setState({
+            toggleJoin: !this.state.toggleJoin
+        })
+    }
     callbackHandleArrow(dataFromChildren, location) {
         this.setState({
             toggleArrow: !this.state.toggleArrow,
@@ -44,6 +53,19 @@ export default class User extends React.Component {
 
         })
     }
+
+    callbackHandleJoin(dataFromChildren,user){
+        this.setState({
+            idToModify: dataFromChildren,
+            profileID: user
+        })
+        this.fetchData();
+    }
+
+    callbackFromJoin(){
+        this.fetchData();
+    }
+
     callbackHandleDelete(dataFromChildren) {
         if (dataFromChildren) {
             this.setState({
@@ -143,8 +165,9 @@ export default class User extends React.Component {
                 <div className="main__card__component">
                     {
                         isLoading && contacts.length > 0 ? contacts.map(contact => {
-                            const { location, startTime, photo, id, creatorId } = contact
-                            return <Card location={location} time={startTime} photo={photo} id={id} userId={profileID} creatorId={creatorId} callbackFromParent={this.callbackHandleArrow}
+                            const { location, startTime, photo, id, creatorId} = contact
+                            return <Card joinVisibility={this.handleJoin} location={location} time={startTime} photo={photo} id={id} 
+                            userId={profileID} creatorId={creatorId} callbackFromParent={this.callbackHandleArrow} callbackForJoin={this.callbackHandleJoin}
                                 toggleArrow={!this.state.toggleArrow} />
 
                         }) : <NoEvents />
@@ -162,6 +185,14 @@ export default class User extends React.Component {
                      id={this.state.idToModify}
                      event={this.state.eventToModify}
                      close={this.closePop}
+                     />
+
+                     <JoinEvent 
+                        visibility={this.state.toggleJoin}
+                        handleJoin={this.handleJoin}
+                        id = {this.state.idToModify}
+                        userId = {this.state.profileID}
+                        callbackFromJoin = {this.callbackFromJoin}
                      />
                     {//<ViewEvent />
                     }
