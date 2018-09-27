@@ -22,7 +22,7 @@
             //display: flex;
             @include push--auto();
             width: 96px;
-            order: 1;
+            order: 0;
         }
 
         .DeleteEventText {
@@ -34,11 +34,11 @@
             text-align: center;
             font-size: 22px;
             color: $yonder-pink;
-            order: 2;
+            order: 1;
         }
 
         .buttons {
-           
+           order:2;
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;

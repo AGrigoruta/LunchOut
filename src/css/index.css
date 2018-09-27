@@ -609,6 +609,7 @@ body {
   margin-top: 49px; }
 
 .cancel__button {
+  order: 3;
   margin: 0 auto;
   margin-top: 19px;
   width: 134.5px;
@@ -690,7 +691,7 @@ body {
       margin-left: auto;
       margin-right: auto;
       width: 96px;
-      order: 1; }
+      order: 0; }
     .DeleteEvent .DeleteEventContainer .DeleteEventText {
       margin-left: auto;
       margin-right: auto;
@@ -700,8 +701,9 @@ body {
       text-align: center;
       font-size: 22px;
       color: #ED1E79;
-      order: 2; }
+      order: 1; }
     .DeleteEvent .DeleteEventContainer .buttons {
+      order: 2;
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
