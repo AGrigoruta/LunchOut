@@ -1,0 +1,157 @@
+
+.CartMenu{
+    height: 70%;
+    display:flex;
+    align-items: flex-end;
+    z-index: 1;
+}
+.events__div{
+    height: 100%;
+    position: relative;
+   
+}
+.event__container{
+    height: 77%;
+    width: 92%;
+    margin: auto;
+    box-shadow: 0px 0px 10px $yonder-gray;
+    
+}
+.arrowOpacity{
+    opacity: 0.2;
+}
+.main__card__component{
+    height: calc(100vh - 120px);
+    overflow: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-sizing: border-box;
+  }
+
+.input-container {
+    padding-top: 20px;
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width:80%;
+    margin:auto;
+    margin-bottom: 15px;
+}
+
+.icon {
+    width: 30px;
+    height: 35px;
+    padding: 7px;
+    background: white;
+    color: rgb(196, 196, 196);
+    min-width: 50px;
+    text-align: center;
+    border:2px solid $yonder-gray;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-right: none;
+
+}
+
+.input-field {
+    border: 2px solid $yonder-gray;
+    width: 100%;
+    padding: 7px;
+    outline: none;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-left: none;
+}
+
+.input-field:focus {
+    border: 2px solid  $yonder-gray;
+    border-left: 0px ;
+}
+.icon:focus {
+    border: 2px solid  $yonder-gray;
+    border-left: 0px ;
+}
+
+.addEventContainer{
+    height: calc(100vh - 120px);
+    overflow: auto;
+    height:100%;
+    width:94%;
+    margin:auto;
+.RestaurantsList{
+    list-style-type: none;
+    margin:auto;
+    display:flex;
+    margin-bottom: 15px;
+    border-bottom: 1px solid grey;
+    width: 90%;
+}
+.RestaurantStyle{
+    font-family:"Champagne";
+    color:$yonder-pink;
+    font-size:30px;
+    font-weight: bold;
+}
+.LocationStyle{
+    font-family:"Champagne";
+    color:#888888;
+    font-size:20px;
+}
+.placeholder{
+    width:50px;
+    height:50px;
+    flex-direction: row;
+    
+}
+.searchBar{
+    width:500px;
+    margin:0 auto;
+    display:flex;
+}
+.searchRounded{
+    border: 2px solid red;
+    border-top-right-radius: 15px ;
+    border-bottom-right-radius: 15px ;
+    border-left: none;
+    padding:6px 15px 6px 30px;
+    flex-direction: column;
+    margin:10px;
+    
+    // -moz-border-radius:15px;
+    // -webkit-border-radius:15px;
+   // background: url('../view/images/searchicon.png') no-repeat 8px 6px;
+}
+.searchLogo{
+    flex-direction: column;
+    width:28px;
+    height:26px;
+    margin: 10px;
+    border-radius:15px;
+
+}
+
+//event timer style
+.event__clock{
+    width: 100%;
+  
+    
+    span{
+        display: inline-block;
+    }
+}
+.main__timer__container{
+    display: flex;
+   position: fixed;
+    width: 100%;
+    align-items: center;
+    /* text-align: center; */
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    justify-content: center;
+}
+.react-timekeeper__hour-select{
+    color: white;
+}
+.react-timekeeper__minute-select{color: rgb(199, 194, 194);}
+}
