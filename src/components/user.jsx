@@ -23,6 +23,7 @@ export default class User extends React.Component {
             eventToModify: "",
             profileID: ""
         }
+        this.fetchuser();
         this.callbackHandleArrow = this.callbackHandleArrow.bind(this);
         this.callbackHandleDelete = this.callbackHandleDelete.bind(this);
         this.callbackHandleEdit = this.callbackHandleEdit.bind(this);
@@ -127,7 +128,7 @@ export default class User extends React.Component {
     }
 
     render() {
-        this.fetchuser();
+
         const { isLoading, contacts, profileID, creatorId} = this.state;
         return (
             <div className="events__div">

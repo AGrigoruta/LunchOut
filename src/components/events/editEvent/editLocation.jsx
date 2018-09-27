@@ -76,7 +76,16 @@ export default class LocationEdit extends React.Component{
                 <Search getVenues={this.getVenues} />
                     <div className="RestaurantsContainer">{this.state.venues.map(venue => {
                         return (
-                            <div onClick={()=> {this.handleTimer(), this.props.handleLocationVisibility, this.state.venue=venue.venue.name, console.log(this.state.venue)}} className="RestaurantsList"  >
+                            <div onClick={()=> {
+                                let payload = {
+                                    location: venue.venue.name
+                                }
+                                this.state.venue=venue.venue.name
+                                axios.put(`http://localhost:8080/api/event/${this.props.id}`, payload).then((resp)=> {
+                                    console.log(resp);
+                                    this.props.handleLocationVisibility;
+                                })
+                                }} className="RestaurantsList"  >
                                 <img className="placeholder" src={placeholder} />
                                 <div className="TextStyle">
                                     <div className="RestaurantStyle" key={venue.venue.name}>

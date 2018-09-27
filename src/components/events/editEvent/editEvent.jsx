@@ -43,13 +43,15 @@ export default class EditEvent extends React.Component{
                 <div className={this.state.handleClock ? "clockDiv" : "opac"}>
                     <TimeEdit 
                         visibility={this.state.handleClock}
-                        clockHandleVisibility={this.handelClockVisibility}
+                        clockHandleVisibility={this.handleClockVisibility}
+                        id={this.props.id}
                         />
                 </div>
                 <div className={this.state.handleLocation ? "locationDiv" : "opac"}>
                     <LocationEdit
                         visibility={this.state.handleLocation}
-                        clockHandleLocation={this.handleLocationVisibility}
+                        handleLocationVisibility={this.handleLocationVisibility}
+                        id={this.props.id}
                         />
                 </div>
                 {
