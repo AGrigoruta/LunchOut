@@ -74,16 +74,16 @@ export default class LocationEdit extends React.Component{
                 this.props.visibility ? (
                     <div>
                 <Search getVenues={this.getVenues} />
-                    <div className="RestaurantsContainer">{this.state.venues.map(venue => {
+                    <div className="RestaurantsContainer" >{this.state.venues.map(venue => {
                         return (
                             <div onClick={()=> {
                                 let payload = {
                                     location: venue.venue.name
                                 }
                                 this.state.venue=venue.venue.name
-                                axios.put(`http://localhost:8080/api/event/${this.props.id}`, payload).then((resp)=> {
+                                axios.put(`https://localhost:8080/api/event/${this.props.id}`, payload).then((resp)=> {
                                     console.log(resp);
-                                    this.props.handleLocationVisibility;
+                                    this.props.handleLocationVisibility();
                                 })
                                 }} className="RestaurantsList"  >
                                 <img className="placeholder" src={placeholder} />

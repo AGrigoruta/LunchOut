@@ -30,6 +30,7 @@ export default class EditEvent extends React.Component{
 
    
     }
+
     handleClockVisibility=()=>{
         const {callbackFromParentEdit} = this.props;
         this.setState({
@@ -41,11 +42,13 @@ export default class EditEvent extends React.Component{
         return (
             <div className="main__card__component">
                 <div className={this.state.handleClock ? "clockDiv" : "opac"}>
+                    <div className="clockDiv__raw">
                     <TimeEdit 
                         visibility={this.state.handleClock}
                         clockHandleVisibility={this.handleClockVisibility}
                         id={this.props.id}
                         />
+                        </div>
                 </div>
                 <div className={this.state.handleLocation ? "locationDiv" : "opac"}>
                     <LocationEdit
@@ -58,7 +61,8 @@ export default class EditEvent extends React.Component{
                     this.props.toggleEdit ? (
                         <div className="DeleteEvent">
                             <div className="DeleteEventContainer">
-                                <p className="DeleteEventText">Are you sure you want to edit {this.props.event}</p>
+                            <div>
+                                <p className="DeleteEventText">Are you sure you want to edit {this.props.event}</p></div>
                                 <div className="buttons">
                                     <div className="button-background" onClick={
                                         this.handleClockVisibility} >
@@ -67,6 +71,10 @@ export default class EditEvent extends React.Component{
                                     <div className="button-background" onClick={this.handleLocationVisibility}>
                                         <p className="No">Location</p>
                                     </div>
+                                    
+                                </div>
+                                <div className="cancel__button" onClick={this.props.close}>
+                                        <p className="cancel__button__text">Cancel</p>
                                 </div>
                             </div>
                         </div>

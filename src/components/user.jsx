@@ -29,6 +29,13 @@ export default class User extends React.Component {
         this.callbackHandleEdit = this.callbackHandleEdit.bind(this);
     }
 
+    closePop=()=>{
+        this.setState({
+            toggleEdit: !this.state.toggleEdit,
+            toggleArrow: !this.state.toggleArrow
+        })
+    }
+
     callbackHandleArrow(dataFromChildren, location) {
         this.setState({
             toggleArrow: !this.state.toggleArrow,
@@ -151,8 +158,10 @@ export default class User extends React.Component {
                     <EditEvent
                      toggleEdit={this.state.toggleEdit}
                      callbackFromParentEdit={this.callbackHandleEdit}
+                     callbackFromParent={this.callbackHandleArrow}
                      id={this.state.idToModify}
                      event={this.state.eventToModify}
+                     close={this.closePop}
                      />
                     {//<ViewEvent />
                     }

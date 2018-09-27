@@ -45,9 +45,9 @@ export default class TimeEdit extends React.Component {
                                             let payload = {
                                                 startTime: this.state.time
                                             }
-                                            axios.put(`http://localhost:8080/api/event/${this.props.id}`, payload).then((resp)=> {
+                                            axios.put(`https://localhost:8080/api/event/${this.props.id}`, payload).then((resp)=> {
                                                 console.log(resp);
-                                                this.props.clockHandleVisibility;
+                                                this.props.clockHandleVisibility();
                                             })
                                         }
 
