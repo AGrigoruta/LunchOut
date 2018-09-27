@@ -5,10 +5,10 @@ const express = require('express')
     , authRoutes = require('./routes/auth-routes')
     , eventRoutes = require('./routes/event-routes')
     , profileRoutes = require('./routes/profile-routes')
-    , passportSetupGoogle = require('./config/passport-setup-google')
-    , passportSetupFacebook = require ('./config/passport-setup-facebook')
+    , passportSetupGoogle = require('./config_project/passport-setup-google')
+    , passportSetupFacebook = require ('./config_project/passport-setup-facebook')
     , mongoose = require('mongoose')
-    , keys = require('./config/keys')
+    , keys = require('./config_project/keys')
     , cookieSession = require('cookie-session') // securing the session
     , passport = require('passport')
     , https = require("https")
@@ -48,8 +48,9 @@ app.use('/profile', profileRoutes); //index/profile/...
 //     keys: [keys.session.cookieKey]
 // }));
 
-
-
+app.get("/firebase-messaging-sw.js", (req, res) => {
+    res.sendFile(__dirname + "/src/firebase-messaging-sw.js");
+  });
 app.get('*', function (req, res) {
     res.sendFile(__dirname + '/build/index.html');
 });
@@ -60,10 +61,17 @@ mongoose.connect(keys.mongodb.dbURI , {useNewUrlParser: true}, ()=>{
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyBGQWYi9jrcyDwgHJ0KzNPGpWHVmIx6r3k",
-    authDomain: "unch-out.firebaseapp.com",
+    authDomain: "lunch-out.firebaseapp.com",
     databaseURL: "https://lunch-out.firebaseio.com",
     storageBucket: "lunch-out.appspot.com",
   };
   firebase.initializeApp(config);
 
+  var admin = require("firebase-admin");
 
+  var serviceAccount = require("./lunch-out-firebase-adminsdk-nnu70-0a83cebffe.json");
+  
+  admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://lunch-out.firebaseio.com"
+  });

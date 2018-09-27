@@ -7,6 +7,10 @@
         "importScripts": true,
         "console": true,
         "self": true,
-        "firebase": true
+        "firebase": true,
+        "object": true
+    },
+    "rules": {
+        "no-restricted-globals": 0
     }
 }

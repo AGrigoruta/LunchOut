@@ -8,6 +8,8 @@ import NoEvents from "./events/noEvents.jsx"
 import DeleteEvent from "./events/deleteEvent.jsx"
 import ViewEvent from "./events/ViewEvent.jsx"
 import '../css/index.css';
+import {InitializePush} from '../initialize.js';
+
 export default class User extends React.Component {
 
     constructor(props) {
@@ -23,6 +25,8 @@ export default class User extends React.Component {
         }
         this.callbackHandleArrow = this.callbackHandleArrow.bind(this);
         this.callbackHandleDelete = this.callbackHandleDelete.bind(this);
+        this.fetchuser();
+        InitializePush();
     }
 
     callbackHandleArrow(dataFromChildren, location) {
@@ -107,7 +111,6 @@ export default class User extends React.Component {
     }
 
     render() {
-        this.fetchuser();
         const { isLoading, contacts, profileID, creatorId} = this.state;
         return (
             <div className="events__div">
@@ -144,7 +147,7 @@ export default class User extends React.Component {
 
                 <Footer toggleArrow={this.state.toggleArrow} />
             </div>
-
+            
 
         );
     }
