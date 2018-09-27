@@ -70,6 +70,9 @@ export default class LocationEdit extends React.Component{
             return(
        
             <div className="addEventContainer">
+            {
+                this.props.visibility ? (
+                    <div>
                 <Search getVenues={this.getVenues} />
                     <div className="RestaurantsContainer">{this.state.venues.map(venue => {
                         return (
@@ -83,7 +86,7 @@ export default class LocationEdit extends React.Component{
                             </div>)
                     
                     })}
-                </div>
+                </div> </div>) : " "}
             </div>
 
 );

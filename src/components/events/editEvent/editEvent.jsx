@@ -18,61 +18,58 @@ export default class EditEvent extends React.Component{
                 }
             ]
         }
-        this.handleClockVisibility =  this.handleClockVisibility.bind(this);
-        this.handleLocationVisibility =  this.handleLocationVisibility.bind(this);
+       // this.handleClockVisibility =  this.handleClockVisibility.bind(this);
+       // this.handleLocationVisibility =  this.handleLocationVisibility.bind(this);
     }
-    handleLocationVisibility(){
+    handleLocationVisibility=()=>{
+        const {callbackFromParentEdit} = this.props;
         this.setState({
-            handleLocation: !this.handleLocation
+            handleLocation: !this.state.handleLocation
         })
+        callbackFromParentEdit()
+
+   
     }
-    handleClockVisibility(){
+    handleClockVisibility=()=>{
+        const {callbackFromParentEdit} = this.props;
         this.setState({
-            handleClock: !this.handleClock
+            handleClock: !this.state.handleClock
         })
+        callbackFromParentEdit()
     }
     render() {
         return (
-            <div className="edit__container">
-                    {this.state.handleLocation ? (
-                    <div className="addEventContainer"><LocationEdit
-                        visibility = {this.state.handleLocation}
-                        clockLocationVisibility={this.handleLocationVisibility}
-                    /> </div>) : ''}
-                    
-                    { this.state.handleClock ? (<div className="edit__container__clockdiv">
+            <div className="main__card__component">
+                <div className={this.state.handleClock ? "clockDiv" : "opac"}>
                     <TimeEdit 
-                                visibility = {this.state.handleClock}
-                                clockHandleVisibility={this.handleClockVisibility}
-                            />
-                    </div>) : (<div className="DeleteStuff">
-                    
-                    {
-                        this.props.toggleEdit ? (
-                            <div className="DeleteEvent">
-                    <div className="DeleteEventContainer">
-                        <p className="DeleteEventText">What you want to edit on {this.props.event} event ?</p>
-                        <div className="buttons">
-                            <div className="button-background" onClick={()=>{
-                                // axios.delete("https://localhost:8080/api/event/"+this.props.id)
-                                // .then((resp) => {
-                                //     this.props.callbackFromParentEdit(false);
-                                // })
-                            }}>
-                                <p className="Yes" onClick={this.handleClockVisibility }>Time</p>
-                                
-                            
-                                
-                            </div>
-                            <div className="button-background" onClick={this.handleLocationVisibility}>
-                                <p className="No">Location</p>
+                        visibility={this.state.handleClock}
+                        clockHandleVisibility={this.handelClockVisibility}
+                        />
+                </div>
+                <div className={this.state.handleLocation ? "locationDiv" : "opac"}>
+                    <LocationEdit
+                        visibility={this.state.handleLocation}
+                        clockHandleLocation={this.handleLocationVisibility}
+                        />
+                </div>
+                {
+                    this.props.toggleEdit ? (
+                        <div className="DeleteEvent">
+                            <div className="DeleteEventContainer">
+                                <p className="DeleteEventText">Are you sure you want to edit {this.props.event}</p>
+                                <div className="buttons">
+                                    <div className="button-background" onClick={
+                                        this.handleClockVisibility} >
+                                        <p className="Yes">Time</p>
+                                    </div>
+                                    <div className="button-background" onClick={this.handleLocationVisibility}>
+                                        <p className="No">Location</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                        ) : ''
-                    }
-                </div>)}
+
+                    ): ""}
             </div>
         )
     }

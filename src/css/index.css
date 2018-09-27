@@ -592,6 +592,21 @@ body {
 .editClock__container {
   z-index: 5; }
 
+.opac {
+  display: none; }
+
+.locationDiv {
+  top: 0;
+  background-color: #fff;
+  position: fixed;
+  height: calc(100vh - 120px);
+  overflow: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-top: 49px; }
+
 .noEventss {
   width: 90%;
   display: block;
@@ -686,6 +701,15 @@ body {
         .DeleteEvent .DeleteEventContainer .buttons .button-background:hover .No {
           text-align: center;
           margin: 0 auto; }
+
+.clockDiv {
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  position: absolute; }
 
 .view-event {
   background-color: white;

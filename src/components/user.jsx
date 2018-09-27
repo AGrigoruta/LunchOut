@@ -55,14 +55,17 @@ export default class User extends React.Component {
         if (dataFromChildren) {
             this.setState({
                 //toggleArrow: !this.state.toggleArrow,
-                toggleEdit: !this.state.toggleEdit
+                toggleEdit: !this.state.toggleEdit,
+                
             })
+       
         } else {
             this.fetchData();
             this.setState({
                 toggleArrow: !this.state.toggleArrow,
                 toggleEdit: !this.state.toggleEdit,
             })
+          
         }
     }
     componentDidMount() {
