@@ -40,7 +40,7 @@ export default class TimeEdit extends React.Component {
                                     <TimeKeeper
                                         time={this.state.time}
                                         onChange={this.handleTimeChange}
-                                        onCancelClick={this.props.handleVisibility}
+                                        onCancelClick={this.props.clockHandleVisibility}
                                         onDoneClick={() => {
                                             let payload = {
                                                 startTime: this.state.time
