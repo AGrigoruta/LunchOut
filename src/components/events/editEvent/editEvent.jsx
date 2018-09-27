@@ -62,7 +62,7 @@ export default class EditEvent extends React.Component{
                         <div className="DeleteEvent">
                             <div className="DeleteEventContainer">
                             <div>
-                                <p className="DeleteEventText">Are you sure you want to edit {this.props.event}</p></div>
+                                <p className="DeleteEventText">Are you sure you want to edit {this.props.event} event ?</p></div>
                                 <div className="buttons">
                                     <div className="button-background" onClick={
                                         this.handleClockVisibility} >
