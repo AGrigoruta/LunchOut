@@ -1,6 +1,3 @@
-import firebase from "firebase";
-//import firebase from "./inits/init-firebase";
-
 if ('function' === typeof importScripts) {
     importScripts('https://www.gstatic.com/firebasejs/4.8.1/firebase-app.js');
     importScripts('https://www.gstatic.com/firebasejs/4.8.1/firebase-database.js');
@@ -12,10 +9,9 @@ if ('function' === typeof importScripts) {
     self.addEventListener('activate', function onActivate(event) {
         firebase.messaging().setBackgroundMessageHandler(payload => {
             const title = payload.notification.title;
-            console.log('Payload for notifications : ', payload.notification.icon);
             const options = {
                 body: payload.notification.body,
-                icon: payoloade.notification.icon
+                icon: payload.notification.icon || './view/images/LunchOut.png'
             }
             return self.registration.showNotification(title, options);
         });
@@ -23,16 +19,16 @@ if ('function' === typeof importScripts) {
 
     self.addEventListener('push', event => {
         event.waitUntil(
-            console.log('Pushed data to firebase !')
+            console.log(event)
         );
     });
     self.addEventListener("notificationclick", function (event) {
         const clickedNotification = event.notification;
         clickedNotification.close();
         const promiseChain = ClientResponse.matchAll({
-                type: "window",
-                includedUncontrolled: true
-            })
+            type: "window",
+            includedUncontrolled: true
+        })
             .then(windowClients => {
                 let matchingClient = null;
                 for (let i = 0; i < windowClients.length; i++) {
@@ -49,5 +45,23 @@ if ('function' === typeof importScripts) {
                 }
             });
         event.waitUnitil(promiseChain);
+    });
+}
+
+function displayNotification(payload, tag = 'common-tag') {
+    const title = 'LunchOut';
+
+    return self.clients.matchAll({
+        type: 'window'
+    }).then(windowClients => {
+        if (windowClients.filter(client => client.focused).length === 0) {
+            return self.registration.showNotification(title, {
+                icon: './view/images/LunchOut.png',
+                tag,
+                vibrate: [100, 50, 100, 50, 100, 50],
+                requireInteraction: false
+            });
+        }
+        return true;
     });
 }

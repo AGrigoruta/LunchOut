@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var event = require('../models/event-model.js');
 var user = require('../models/user-model.js');
-// var request = require('request');
 var http = require('http')
 var https = require('https');
 
@@ -17,9 +16,7 @@ var SCOPES = [MESSAGING_SCOPE];
 router.route('/event')
 
     .get(function (req, res) {
-        console.log("Doin Get");
         event.find(function (err, events) {
-            console.log("Stuff ongoing");
             if (err) {
                 return res.send(err);
             }

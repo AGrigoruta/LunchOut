@@ -23,7 +23,6 @@ router.get('/google/redirect', passport.authenticate('google',
         successRedirect: '/user',
         failureRedirect: '/'
     }
-    // res.redirect('/profile');
 ));
 
 //auth fb
@@ -31,14 +30,9 @@ router.get('/facebook', passport.authenticate('facebook', {
     scope: ['email']
 }));
 router.get('/facebook/callback', passport.authenticate('facebook',
-    // res.send({
-    //     credentials: req.user,
-    //     logged: true,
-    // });
-    {
-        successRedirect: '/user',
-        failureRedirect: '/'
-    }))
+    { successRedirect: '/user',
+    failureRedirect: '/' 
+}))
 
 router.get('/logged', (req, res) => {
     res.send({
