@@ -1,0 +1,27 @@
+{
+    "notification": [{
+            "token": "",
+            "body": "De ce nu primeste nimka ? Oare e ruta care trebuie ?",
+            "title": "Robert",
+            "date": "21.04.2019"
+        },
+        {
+            "token": "",
+            "body": "Nu da la fata te rog !",
+            "title": "Grigi",
+            "date": "21.04.2019"
+        },
+        {
+            "token": "",
+            "body": "De ce imi da 33 ?!",
+            "title": "Grigi",
+            "date": "21.04.2019"
+        },
+        {
+            "token": "",
+            "body": "Esti constient ca nu eu am facut backul nu ?",
+            "title": "Alex",
+            "date": "21.04.2019"
+        }
+    ]
+}

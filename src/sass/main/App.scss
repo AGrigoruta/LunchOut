@@ -2,68 +2,122 @@
   font-family: 'Champagne';
   src: url('../view/fonts/Champagne.ttf') format('truetype');
 }
-.main__div{
+
+.main__div {
   height: 100%;
 }
-#root{height: 100%;}
-html{
+
+#root {
   height: 100%;
 }
-body{
+
+html {
   height: 100%;
-  margin:0px;
- 
 }
-a{width: 100%;}
+
+body {
+  height: 100%;
+  margin: 0px;
+
+}
+
+a {
+  width: 100%;
+}
+
 .App {
   height: 100%;
   background-image: url('../view/images/Background.png');
-    text-align:center;
-    
-    .App__header__logo {
-     width: 30%;
-     display: block;
+  text-align: center;
+
+  .App__header__logo {
+    width: 30%;
+    display: block;
     margin-top: 70px;
     display: inline-block;
     padding-bottom: 0px;
-    }
-    
   }
+
+}
+
 .App__header {
   width: 100%;
-    height: 150px;
-    padding: 20px;
-    color: white;
-    position:fixed;
-   
-  }
-  .header__title{
-    height: 40px;
-    width: 100%;
-    font-family: 'Champagne';
-    font-size: 30px;
-    margin-top: 0px;
-    text-align:center;
-    color: #fff;
-    padding: 10px 0px 10px 0px;
-   
-  }
-  .header{
-    background-color: #0071bc;
-    text-align: center;
+  height: 150px;
+  padding: 20px;
+  color: white;
+  position: fixed;
+
+}
+
+.header__title {
+  height: 40px;
+  width: 100%;
+  font-family: 'Champagne';
+  font-size: 30px;
+  margin-top: 0px;
+  text-align: center;
+  color: #fff;
+  padding: 10px 0px 10px 0px;
+
+}
+
+.header {
+  background-color: #0071bc;
+  text-align: center;
+  margin: 0px;
+
+  p {
     margin: 0px;
-    p{margin:0px;}
-   
-   
   }
-  .main__card__component{
-    height: calc(100vh - 120px);
-    overflow: auto;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    box-sizing: border-box;
-  }
-  @import '../devices/phone.scss';
-  @import '../devices/tablet.scss';
 
 
+}
+
+.main__card__component {
+  height: calc(100vh - 120px);
+  overflow: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  box-sizing: border-box;
+}
+
+$yonder-pink:#ED1E79;
+$yonder-blue: #0071BC;
+$yonder-gray:rgb(75, 75, 75);
+
+.not_container {
+  padding-left: 1em;
+  padding-right: 1em;
+  font-family: Champagne;
+  font-size: 20px;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #fff;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  color: #0071bc;
+  margin: 1px;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 2px rgba(0, 0, 0, .1);
+}
+
+.not_date {
+  color: #4b4b4b;
+  text-align: right;
+  font-size: 15px;
+  margin-bottom: 1em;
+}
+
+.not_title {
+  max-height: 25px;
+  overflow: hidden;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row;
+  flex-flow: row;
+  margin-bottom: .5em;
+  margin-top: .5em;
+}
+
+@import '../devices/phone.scss';
+@import '../devices/tablet.scss';

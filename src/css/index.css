@@ -60,6 +60,37 @@ a {
   padding-bottom: 15px;
   box-sizing: border-box; }
 
+.not_container {
+  padding-left: 1em;
+  padding-right: 1em;
+  font-family: Champagne;
+  font-size: 20px;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #fff;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  color: #0071bc;
+  margin: 1px;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1); }
+
+.not_date {
+  color: #4b4b4b;
+  text-align: right;
+  font-size: 15px;
+  margin-bottom: 1em; }
+
+.not_title {
+  max-height: 25px;
+  overflow: hidden;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row;
+  flex-flow: row;
+  margin-bottom: .5em;
+  margin-top: .5em; }
+
 @media (max-width: 640px) {
   .App {
     text-align: center; }
@@ -497,6 +528,7 @@ body {
 
 .icon {
   width: 15%;
+  height: 15%;
   padding: 7px;
   background: white;
   color: #c4c4c4;

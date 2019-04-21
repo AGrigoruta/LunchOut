@@ -29,9 +29,11 @@ export default class Footer extends React.Component {
                         <img src={addic} />
                     </div>
                 </Link>
-                <div className="footer__icon__bellic">
-                    <img src={bellic} />
-                </div>
+                <Link to="/notif">
+                    <div className="footer__icon__bellic">
+                        <img src={bellic} />
+                    </div>
+                </Link>
                 <div className="footer__icon__profileic">
                     <img src={profileic} />
                 </div>
