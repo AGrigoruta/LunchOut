@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 var event = require('../models/event-model.js');
 var user = require('../models/user-model.js');
-var http = require('http')
+var notification = require('../models/notification-model.js');
+var http = require('http');
 var https = require('https');
 
 var {google} = require('googleapis');
@@ -85,6 +86,7 @@ router.route('/notification')
     .post(function (req, res) {
         console.log("This is the body: ", req.body);
         sendNotif(req.body);
+        saveNotification(req.body,res);
         res.status(200);
     });
 
@@ -147,5 +149,25 @@ function sendFcmMessage(fcmMessage) {
 
 function sendNotif(payload) {
     sendFcmMessage(payload);
+
+}
+function saveNotification(payload,res) {
+    var notifi = new notification;
+    console.log(payload);
+    notifi.token = payload.message.token;
+    notifi.title = payload.message.notification.title;
+    notifi.body = payload.message.notification.body;
+    //notifi.date=payload.message.notification.date;
+    console.log(notifi);
+
+    console.log(notifi);
+    notifi.save(function (err, notifi) {
+
+        if (err) {
+            return res.send(err);
+        }
+
+        return res.send(notifi);
+    });    
 }
 module.exports = router;

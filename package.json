@@ -10,7 +10,7 @@
     "dev": "node scripts/start.js",
     "start": "npm run build-css && npm run build && npm run server",
     "build": "rimraf ./build && node scripts/build.js && sw-precache --config=sw-precache-config.js",
-    "server": "nodemon --inspect start.js",
+    "server": "nodemon start.js",
     "test": "node scripts/test.js --env=jsdom"
   },
   "keywords": [
