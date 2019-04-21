@@ -496,12 +496,10 @@ body {
   margin-bottom: 15px; }
 
 .icon {
-  width: 30px;
-  height: 35px;
+  width: 15%;
   padding: 7px;
   background: white;
   color: #c4c4c4;
-  min-width: 50px;
   text-align: center;
   border: 2px solid #4b4b4b;
   border-top-left-radius: 25px;

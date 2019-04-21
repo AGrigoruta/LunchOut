@@ -12,8 +12,6 @@ export default class EditEvent extends React.Component{
             <div className="events__div">
                 <Header name="Edit your event"/>
                     <div className="main__card__component" >
-                        
-
                     </div>
                 <Footer />
             </div>

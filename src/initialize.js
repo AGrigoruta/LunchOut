@@ -1,19 +1,7 @@
-
 import firebase from "firebase";
-
+import firebaseApp from "./inits/init-firebase"
 
 let InitializePush = () => {
-
-    var config = {
-        mapiKey: "AIzaSyBGQWYi9jrcyDwgHJ0KzNPGpWHVmIx6r3k",
-        authDomain: "lunch-out.firebaseapp.com",
-        databaseURL: "https://lunch-out.firebaseio.com",
-        projectId: "lunch-out",
-        storageBucket: "lunch-out.appspot.com",
-        messagingSenderId: "479665323924"
-    };
-    console.log("ababa");
-    const firebaseApp = firebase.initializeApp(config);
     const messaging = firebaseApp.firebase_.messaging();
     messaging
         .requestPermission()
@@ -25,9 +13,9 @@ let InitializePush = () => {
             window.FCMToken = token;
             console.log("FCM Token: ", token);
             firebase
-            .database()
-            .ref(`tokens/{token}`)
-            .set(token);
+                .database()
+                .ref(`tokens/{token}`)
+                .set(token);
         })
         .catch(error => {
             if (error.code === "messaging/permission-blocked") {
@@ -41,4 +29,6 @@ let InitializePush = () => {
     });
 }
 
-export {InitializePush};
+export {
+    InitializePush
+};

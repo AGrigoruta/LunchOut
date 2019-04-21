@@ -18,22 +18,24 @@ const express = require('express')
     , firebase= require("firebase");
 
 const options = {
-        key: fs.readFileSync('./server.key'),
-        cert: fs.readFileSync('./server.crt'),
-        requestCert: false,
-        rejectUnauthorized: false
+  key: fs.readFileSync('./server_k.key'),
+  cert: fs.readFileSync('./server_c.cert'),
+  requestCert: false,
+  rejectUnauthorized: false
 };
 
-const server = https.createServer(options,app).listen(port,function(){
-        console.log("Server started at port :"+port);
+const server = https.createServer(options, app).listen(port, function () {
+  console.log("Server started at port :" + port);
 });
-app.use(bodyParser.json({useNewUrlParser: true}));
+app.use(bodyParser.json({
+  useNewUrlParser: true
+}));
 
 //initialize passport
 app.use(session({
-    secret: 'asdf',
-    resave: false,
-    saveUninitialized: true
+  secret: 'asdf',
+  resave: false,
+  saveUninitialized: true
 }))
 app.use(passport.initialize());
 app.use(passport.session());
@@ -50,29 +52,21 @@ app.use('/profilePage',profilePageRoutes);
 // }));
 
 app.get("/firebase-messaging-sw.js", (req, res) => {
-    res.sendFile(__dirname + "/src/firebase-messaging-sw.js");
-  });
+  res.sendFile(__dirname + "/src/firebase-messaging-sw.js");
+});
 app.get('*', function (req, res) {
-    res.sendFile(__dirname + '/build/index.html');
+  res.sendFile(__dirname + '/build/index.html');
 });
 //connect to mongoDB
-mongoose.connect(keys.mongodb.dbURI , {useNewUrlParser: true}, ()=>{
-    console.log('Connected to DB! \n\n');
+mongoose.connect(keys.mongodb.dbURI, {
+  useNewUrlParser: true
+}, () => {
+  console.log('Connected to DB! \n\n');
 });
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyBGQWYi9jrcyDwgHJ0KzNPGpWHVmIx6r3k",
-    authDomain: "lunch-out.firebaseapp.com",
-    databaseURL: "https://lunch-out.firebaseio.com",
-    storageBucket: "lunch-out.appspot.com",
-  };
-  firebase.initializeApp(config);
 
-  var admin = require("firebase-admin");
-
-  var serviceAccount = require("./lunch-out-firebase-adminsdk-nnu70-0a83cebffe.json");
-  
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://lunch-out.firebaseio.com"
-  });
+var admin = require("firebase-admin");
+var serviceAccount = require("./lunch-out-firebase-adminsdk-nnu70-0a83cebffe.json");
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://lunch-out.firebaseio.com"
+});
