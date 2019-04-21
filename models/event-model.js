@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
+
 const eventSchema = new mongoose.Schema({
-    //expire_at: {type: Date, default: Date.now, expires: 60},
+    Date: { type:Date, default: Date.now},
     creatorID: String,
     location: String,
     startTime: String,
     status: String,
-    participantsID: [String]
+    participantsID: [String],
+    name: String
 })
 
 const event = mongoose.model('event',eventSchema);

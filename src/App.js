@@ -3,7 +3,6 @@ import logo from './view/images/Logo.png';
 import './css/index.css';
 import Button from './Log.js';
 
-
 class App extends React.Component {
   render() {
     return (

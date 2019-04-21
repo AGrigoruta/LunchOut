@@ -8,8 +8,13 @@ import NoEvents from "./events/noEvents.jsx"
 import DeleteEvent from "./events/deleteEvent.jsx"
 import ViewEvent from "./events/ViewEvent.jsx"
 import '../css/index.css';
+<<<<<<< HEAD
 import EditEvent from "./events/editEvent/editEvent";
 import JoinEvent from "./events/joinEvent/joinEvent";
+=======
+import {InitializePush} from '../initialize.js';
+
+>>>>>>> master
 export default class User extends React.Component {
 
     constructor(props) {
@@ -26,12 +31,13 @@ export default class User extends React.Component {
             profileID: "",
             participants:[""]
         }
-        this.fetchuser();
         this.callbackHandleArrow = this.callbackHandleArrow.bind(this);
         this.callbackHandleDelete = this.callbackHandleDelete.bind(this);
         this.callbackHandleEdit = this.callbackHandleEdit.bind(this);
         this.callbackHandleJoin = this.callbackHandleJoin.bind(this);
         this.callbackFromJoin = this.callbackFromJoin.bind(this);
+        this.fetchuser();
+        InitializePush();
     }
 
     closePop=()=>{
@@ -157,7 +163,6 @@ export default class User extends React.Component {
     }
 
     render() {
-
         const { isLoading, contacts, profileID, creatorId} = this.state;
         return (
             <div className="events__div">
@@ -213,7 +218,7 @@ export default class User extends React.Component {
 
                 <Footer toggleArrow={this.state.toggleArrow} />
             </div>
-
+            
 
         );
     }

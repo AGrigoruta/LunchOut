@@ -3,7 +3,6 @@ const router = require('express').Router();
 const authCheck = (req, res, next) => {
     if (!req.user) {
         //if user is not logged in
-        //res.send('Your are not logged in damn hacker');
         res.redirect('/');
     } else {
         //if logged in

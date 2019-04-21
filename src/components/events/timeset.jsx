@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import TimeKeeper from '../react-timekeeper';
 import "../../sass/main/events/user.scss";
+import firebase from 'firebase';
 export default class Timeset extends React.Component {
     constructor(props) {
         super(props)
@@ -17,13 +18,13 @@ export default class Timeset extends React.Component {
     }
 
     componentDidMount() {
-
+        console.log(firebase.app())
     }
 
 
     handleTimeChange(newTime) {
         this.setState({ time: newTime.formatted24 })
-        
+
     }
     toggleTimekeeper(val) {
         this.setState({ displayTimepicker: val })
@@ -42,7 +43,7 @@ export default class Timeset extends React.Component {
                                         onChange={this.handleTimeChange}
                                         onCancelClick={this.props.handleVisibility}
                                         onDoneClick={() => {
-                                            
+
                                             axios.get("https://localhost:8080/auth/logged")
                                                 .then(res => {
 
@@ -50,6 +51,7 @@ export default class Timeset extends React.Component {
                                                         user: res.data.user.authId,
                                                         location: this.props.location
                                                     })
+                                                    console.log(res)
 
                                                 }).then(() => {
                                                     this.props.handleVisibility()
@@ -68,8 +70,30 @@ export default class Timeset extends React.Component {
                                                             'status': 'Planned',
                                                             'participantsID': [this.state.user]
                                                         })
+                                                    }).then(() => {
+                                                        let dateToBeParsed = new Date();
+                                                        const stringifiedDate = this.state.time.split(':');
+                                                        dateToBeParsed.setHours(stringifiedDate[0]);
+                                                        dateToBeParsed.setMinutes(stringifiedDate[1]);
+                                                        dateToBeParsed.setSeconds('0');
+                                                        let payload = {
+                                                            message: {
+                                                                token: window.FCMToken,
+                                                                notification:{
+                                                                    body: "New event added near you",
+                                                                    title: this.state.location,
+                                                                    date: dateToBeParsed
+                                                                }
+                                                            }
+                                                        }
+                                                        axios.post('https://localhost:8080/api/notification', payload).then((resp) => {
+                                                            console.log(resp, 'tried to notif');
+                                                        }, (err) => {
+                                                            console.log(err, 'something went wrong');
+                                                        })
                                                     })
                                                 })
+
                                         }
 
                                         }

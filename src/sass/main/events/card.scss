@@ -10,17 +10,18 @@ $image-margin-top: 0%;
     margin-bottom: 10px;
     border-radius: 6vw;
     box-shadow: 0px 0px 10px gray;
+
     .text {
         font-family: "Champagne";
         width: 90%;
         color: $yonder-pink;
         //font-size: 30px;
         //font-size: 2.777777777777778%;
-        font-size:5vw;
+        font-size: 5vw;
         display: flex;
         justify-content: space-between;
         flex-wrap: nowrap;
-        margin-top:1vw;
+        margin-top: 1vw;
         //margin-top:$text-top-margin;
 
         .location {
@@ -28,9 +29,9 @@ $image-margin-top: 0%;
             order: 1;
             margin-left: 7%;
             margin-bottom: 0;
-            margin-top:0;
-            text-overflow:ellipsis;
-            width:70%;
+            margin-top: 0;
+            text-overflow: ellipsis;
+            width: 70%;
             overflow: hidden;
             white-space: nowrap;
         }
@@ -40,7 +41,7 @@ $image-margin-top: 0%;
             order: 2;
             margin-right: 5%;
             margin-bottom: 0;
-            margin-top:0;
+            margin-top: 0;
         }
     }
 
@@ -51,16 +52,18 @@ $image-margin-top: 0%;
         .text {
             order: 1;
         }
+
         .arrow-down {
             margin-right: 5%;
-            margin-top:3vw;
+            margin-top: 3vw;
             @include arrow(down, 1.5vw, $yonder-pink);
             order: 2;
             //margin-top:25px;
         }
+
         .arrow-down:hover {
             margin-right: 5%;
-            margin-top:3vw;
+            margin-top: 3vw;
             //margin-top:2vw;
             @include arrow(down, 1.5vw, pink);
             order: 2;
@@ -71,11 +74,12 @@ $image-margin-top: 0%;
 .Card {
     .images {
         margin-right: 14%;
+
         img {
-            border-radius :50%;
+            border-radius: 50%;
             width: 7vw;
             margin-top: 2vw;
-            margin-right:1%;
+            margin-right: 1%;
             float: right;
             float: bottom;
         }

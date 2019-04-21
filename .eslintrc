@@ -1,0 +1,16 @@
+{
+    "extends": "react-app",
+    "parser": "babel-eslint",
+    "globals": {
+        "window": true,
+        "document": true,
+        "importScripts": true,
+        "console": true,
+        "self": true,
+        "firebase": true,
+        "object": true
+    },
+    "rules": {
+        "no-restricted-globals": 0
+    }
+}
