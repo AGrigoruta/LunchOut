@@ -71,12 +71,18 @@ export default class Timeset extends React.Component {
                                                             'participantsID': [this.state.user]
                                                         })
                                                     }).then(() => {
+                                                        let dateToBeParsed = new Date();
+                                                        const stringifiedDate = this.state.time.split(':');
+                                                        dateToBeParsed.setHours(stringifiedDate[0]);
+                                                        dateToBeParsed.setMinutes(stringifiedDate[1]);
+                                                        dateToBeParsed.setSeconds('0');
                                                         let payload = {
                                                             message: {
                                                                 token: window.FCMToken,
                                                                 notification:{
                                                                     body: "New event added near you",
-                                                                    title: this.state.location
+                                                                    title: this.state.location,
+                                                                    date: dateToBeParsed
                                                                 }
                                                             }
                                                         }
