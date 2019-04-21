@@ -8,13 +8,10 @@ import NoEvents from "./events/noEvents.jsx"
 import DeleteEvent from "./events/deleteEvent.jsx"
 import ViewEvent from "./events/ViewEvent.jsx"
 import '../css/index.css';
-<<<<<<< HEAD
 import EditEvent from "./events/editEvent/editEvent";
 import JoinEvent from "./events/joinEvent/joinEvent";
-=======
 import {InitializePush} from '../initialize.js';
 
->>>>>>> master
 export default class User extends React.Component {
 
     constructor(props) {
