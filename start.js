@@ -4,6 +4,7 @@ const express = require('express')
     , port = 8080
     , authRoutes = require('./routes/auth-routes')
     , eventRoutes = require('./routes/event-routes')
+    , profilePageRoutes = require('./routes/profilePage-routes')
     , profileRoutes = require('./routes/profile-routes')
     , passportSetupGoogle = require('./config_project/passport-setup-google')
     , passportSetupFacebook = require ('./config_project/passport-setup-facebook')
@@ -42,7 +43,7 @@ app.use(express.static('build'));
 app.use('/auth', authRoutes); //index/auth/...
 app.use('/api', eventRoutes); //index/api/...
 app.use('/profile', profileRoutes); //index/profile/...
-
+app.use('/profilePage',profilePageRoutes);
 // app.use(cookieSession({
 //     maxAge: 25 * 60 * 60 * 1000, // the cookie will last a day
 //     keys: [keys.session.cookieKey]
