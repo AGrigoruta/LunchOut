@@ -11,30 +11,27 @@ import NewEvent from "../newEvent";
 export default class Footer extends React.Component {
     render() {
         return (
-            <div
-                className={
-                    this.props.toggleArrow ? "footer arrowOpacity" : "footer"
-                }
-            >
+            <div className={this.props.toggleArrow ? "footer arrowOpacity" : "footer"}>
                 <Link to="/user">
                     <div className="footer__icon__homeic">
                         <img src={homeic} />
-                    </div>
-                </Link>
+                    </div></Link>
                 <div className="footer__icon__searchic">
                     <img src={searchic} />
                 </div>
                 <Link to="/add">
                     <div className="footer__icon__addic">
                         <img src={addic} />
-                    </div>
-                </Link>
+                    </div></Link>
                 <div className="footer__icon__bellic">
                     <img src={bellic} />
                 </div>
-                <div className="footer__icon__profileic">
-                    <img src={profileic} />
-                </div>
+                <Link to="/userInterface">
+                    <div className="footer__icon__profileic">
+                        <img src={profileic} />
+                    </div>
+                </Link>
+
             </div>
         );
     }

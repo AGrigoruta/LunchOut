@@ -8,6 +8,8 @@ import User from "./components/user";
 import newEvent from "./components/newEvent";
 import timeSet from "./components/events/timeset";
 import EditEvent from "./components/events/editEvent/editEvent";
+import UserInterface from "./components/user/userInterface";
+import ProfilePage from "./components/user/profilePage";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
     <Route
@@ -38,7 +40,8 @@ class Home extends React.Component {
                     <Route path="/add" component={newEvent} />
                     <Route path="/timer" component={timeSet} />
                     <Route path="/edit" component={EditEvent} />
-                </div>
+                    <Route path="/userInterface" component={ProfilePage} /> 
+                </div> 
             </BrowserRouter>
         );
     }

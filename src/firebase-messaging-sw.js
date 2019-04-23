@@ -14,7 +14,7 @@ if ('function' === typeof importScripts) {
         console.log('payload', payload.notification.icon);
         const options = {
             body: payload.notification.body,
-            icon: payoloade.notification.icon
+            icon: payload.notification.icon
         }
         return self.registration.showNotification(title, options);
     })
